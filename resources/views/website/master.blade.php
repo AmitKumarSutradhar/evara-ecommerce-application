@@ -21,7 +21,6 @@
 
 @include('website.includes.script')
 
-
 </body>
 
 </html>

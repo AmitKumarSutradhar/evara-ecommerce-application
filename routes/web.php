@@ -15,3 +15,5 @@ use App\Http\Controllers\EvaraController;
 */
 
 Route::get('/', [EvaraController::class,'index'])->name('home');
+Route::get('/product-category', [EvaraController::class, 'category'])->name('product-category');
+Route::get('/product-detail', [EvaraController::class, 'product'])->name('product-detail');

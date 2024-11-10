@@ -1,4 +1,5 @@
 @extends('website.master')
+@section('title','Popular ecommerce website in bangladesh')
 
 @section('body')
     <section class="home-slider position-relative pt-50">

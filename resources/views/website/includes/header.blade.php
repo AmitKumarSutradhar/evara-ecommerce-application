@@ -202,7 +202,7 @@
         <div class="container">
             <div class="header-wrap">
                 <div class="logo logo-width-1">
-                    <a href="index-2.html"><img src="{{ asset('/') }}website/assets/imgs/theme/logo.svg" alt="logo"></a>
+                    <a href="{{ route('home') }}"><img src="{{ asset('/') }}website/assets/imgs/theme/logo.svg" alt="logo"></a>
                 </div>
                 <div class="header-right">
                     <div class="search-style-2">
@@ -284,7 +284,7 @@
         <div class="container">
             <div class="header-wrap header-space-between position-relative">
                 <div class="logo logo-width-1 d-block d-lg-none">
-                    <a href="index-2.html"><img src="{{ asset('/') }}website/assets/imgs/theme/logo.svg" alt="logo"></a>
+                    <a href="{{ route('home') }}"><img src="{{ asset('/') }}website/assets/imgs/theme/logo.svg" alt="logo"></a>
                 </div>
                 <div class="header-nav d-none d-lg-flex">
                     <div class="main-categori-wrap d-none d-lg-block">
@@ -449,7 +449,7 @@
                                         </ul>
                                     </div>
                                 </li>
-                                <li><a href="shop-grid-right.html"><i class="evara-font-desktop"></i>Computer & Office</a></li>
+                                <li><a href="{{ route('product-category') }}"><i class="evara-font-desktop"></i>Computer & Office</a></li>
                                 <li><a href="shop-grid-right.html"><i class="evara-font-cpu"></i>Consumer Electronics</a></li>
                                 <li><a href="shop-grid-right.html"><i class="evara-font-diamond"></i>Jewelry & Accessories</a></li>
                                 <li><a href="shop-grid-right.html"><i class="evara-font-home"></i>Home & Garden</a></li>
