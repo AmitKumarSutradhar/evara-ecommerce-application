@@ -65,15 +65,20 @@
                                 <div class="product-img-action-wrap">
                                     <div class="product-img product-img-zoom">
                                         <a href="{{ route('product-detail') }}">
-                                            <img class="default-img" src="{{ asset('/') }}website/assets/imgs/shop/product-2-1.jpg" alt="">
-                                            <img class="hover-img" src="{{ asset('/') }}website/assets/imgs/shop/product-2-2.jpg" alt="">
+                                            <img class="default-img"
+                                                 src="{{ asset('/') }}website/assets/imgs/shop/product-2-1.jpg" alt="">
+                                            <img class="hover-img"
+                                                 src="{{ asset('/') }}website/assets/imgs/shop/product-2-2.jpg" alt="">
                                         </a>
                                     </div>
                                     <div class="product-action-1">
-                                        <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+                                        <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal"
+                                           data-bs-target="#quickViewModal">
                                             <i class="fi-rs-search"></i></a>
-                                        <a aria-label="Add To Wishlist" class="action-btn hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                        <a aria-label="Compare" class="action-btn hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
+                                        <a aria-label="Add To Wishlist" class="action-btn hover-up"
+                                           href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
+                                        <a aria-label="Compare" class="action-btn hover-up" href="shop-compare.html"><i
+                                                class="fi-rs-shuffle"></i></a>
                                     </div>
                                     <div class="product-badges product-badges-position product-badges-mrg">
                                         <span class="hot">Hot</span>
@@ -94,7 +99,8 @@
                                         <span class="old-price">$245.8</span>
                                     </div>
                                     <div class="product-action-1 show">
-                                        <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
+                                        <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i
+                                                class="fi-rs-shopping-bag-add"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -104,15 +110,20 @@
                                 <div class="product-img-action-wrap">
                                     <div class="product-img product-img-zoom">
                                         <a href="{{ route('product-detail') }}">
-                                            <img class="default-img" src="{{ asset('/') }}website/assets/imgs/shop/product-3-1.jpg" alt="">
-                                            <img class="hover-img" src="{{ asset('/') }}website/assets/imgs/shop/product-3-2.jpg" alt="">
+                                            <img class="default-img"
+                                                 src="{{ asset('/') }}website/assets/imgs/shop/product-3-1.jpg" alt="">
+                                            <img class="hover-img"
+                                                 src="{{ asset('/') }}website/assets/imgs/shop/product-3-2.jpg" alt="">
                                         </a>
                                     </div>
                                     <div class="product-action-1">
-                                        <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+                                        <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal"
+                                           data-bs-target="#quickViewModal">
                                             <i class="fi-rs-search"></i></a>
-                                        <a aria-label="Add To Wishlist" class="action-btn hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                        <a aria-label="Compare" class="action-btn hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
+                                        <a aria-label="Add To Wishlist" class="action-btn hover-up"
+                                           href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
+                                        <a aria-label="Compare" class="action-btn hover-up" href="shop-compare.html"><i
+                                                class="fi-rs-shuffle"></i></a>
                                     </div>
                                     <div class="product-badges product-badges-position product-badges-mrg">
                                         <span class="new">New</span>
@@ -133,7 +144,8 @@
                                         <span class="old-price">$255.8</span>
                                     </div>
                                     <div class="product-action-1 show">
-                                        <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
+                                        <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i
+                                                class="fi-rs-shopping-bag-add"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -143,15 +155,20 @@
                                 <div class="product-img-action-wrap">
                                     <div class="product-img product-img-zoom">
                                         <a href="{{ route('product-detail') }}">
-                                            <img class="default-img" src="{{ asset('/') }}website/assets/imgs/shop/product-7-1.jpg" alt="">
-                                            <img class="hover-img" src="{{ asset('/') }}website/assets/imgs/shop/product-7-2.jpg" alt="">
+                                            <img class="default-img"
+                                                 src="{{ asset('/') }}website/assets/imgs/shop/product-7-1.jpg" alt="">
+                                            <img class="hover-img"
+                                                 src="{{ asset('/') }}website/assets/imgs/shop/product-7-2.jpg" alt="">
                                         </a>
                                     </div>
                                     <div class="product-action-1">
-                                        <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+                                        <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal"
+                                           data-bs-target="#quickViewModal">
                                             <i class="fi-rs-search"></i></a>
-                                        <a aria-label="Add To Wishlist" class="action-btn hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                        <a aria-label="Compare" class="action-btn hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
+                                        <a aria-label="Add To Wishlist" class="action-btn hover-up"
+                                           href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
+                                        <a aria-label="Compare" class="action-btn hover-up" href="shop-compare.html"><i
+                                                class="fi-rs-shuffle"></i></a>
                                     </div>
                                     <div class="product-badges product-badges-position product-badges-mrg">
                                         <span class="best">Best Sell</span>
@@ -172,7 +189,8 @@
                                         <span class="old-price">$445.8</span>
                                     </div>
                                     <div class="product-action-1 show">
-                                        <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
+                                        <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i
+                                                class="fi-rs-shopping-bag-add"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -182,15 +200,20 @@
                                 <div class="product-img-action-wrap">
                                     <div class="product-img product-img-zoom">
                                         <a href="{{ route('product-detail') }}">
-                                            <img class="default-img" src="{{ asset('/') }}website/assets/imgs/shop/product-1-2.jpg" alt="">
-                                            <img class="hover-img" src="{{ asset('/') }}website/assets/imgs/shop/product-1-2.jpg" alt="">
+                                            <img class="default-img"
+                                                 src="{{ asset('/') }}website/assets/imgs/shop/product-1-2.jpg" alt="">
+                                            <img class="hover-img"
+                                                 src="{{ asset('/') }}website/assets/imgs/shop/product-1-2.jpg" alt="">
                                         </a>
                                     </div>
                                     <div class="product-action-1">
-                                        <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+                                        <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal"
+                                           data-bs-target="#quickViewModal">
                                             <i class="fi-rs-search"></i></a>
-                                        <a aria-label="Add To Wishlist" class="action-btn hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                        <a aria-label="Compare" class="action-btn hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
+                                        <a aria-label="Add To Wishlist" class="action-btn hover-up"
+                                           href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
+                                        <a aria-label="Compare" class="action-btn hover-up" href="shop-compare.html"><i
+                                                class="fi-rs-shuffle"></i></a>
                                     </div>
                                     <div class="product-badges product-badges-position product-badges-mrg">
                                         <span class="sale">Sale</span>
@@ -211,7 +234,8 @@
                                         <span class="old-price">$235.8</span>
                                     </div>
                                     <div class="product-action-1 show">
-                                        <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
+                                        <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i
+                                                class="fi-rs-shopping-bag-add"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -221,15 +245,20 @@
                                 <div class="product-img-action-wrap">
                                     <div class="product-img product-img-zoom">
                                         <a href="{{ route('product-detail') }}">
-                                            <img class="default-img" src="{{ asset('/') }}website/assets/imgs/shop/product-4-1.jpg" alt="">
-                                            <img class="hover-img" src="{{ asset('/') }}website/assets/imgs/shop/product-3-2.jpg" alt="">
+                                            <img class="default-img"
+                                                 src="{{ asset('/') }}website/assets/imgs/shop/product-4-1.jpg" alt="">
+                                            <img class="hover-img"
+                                                 src="{{ asset('/') }}website/assets/imgs/shop/product-3-2.jpg" alt="">
                                         </a>
                                     </div>
                                     <div class="product-action-1">
-                                        <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+                                        <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal"
+                                           data-bs-target="#quickViewModal">
                                             <i class="fi-rs-search"></i></a>
-                                        <a aria-label="Add To Wishlist" class="action-btn hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                        <a aria-label="Compare" class="action-btn hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
+                                        <a aria-label="Add To Wishlist" class="action-btn hover-up"
+                                           href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
+                                        <a aria-label="Compare" class="action-btn hover-up" href="shop-compare.html"><i
+                                                class="fi-rs-shuffle"></i></a>
                                     </div>
                                     <div class="product-badges product-badges-position product-badges-mrg">
                                         <span class="hot">-30%</span>
@@ -250,7 +279,8 @@
                                         <span class="old-price">$45.8</span>
                                     </div>
                                     <div class="product-action-1 show">
-                                        <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
+                                        <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i
+                                                class="fi-rs-shopping-bag-add"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -260,15 +290,20 @@
                                 <div class="product-img-action-wrap">
                                     <div class="product-img product-img-zoom">
                                         <a href="{{ route('product-detail') }}">
-                                            <img class="default-img" src="{{ asset('/') }}website/assets/imgs/shop/product-5-2.jpg" alt="">
-                                            <img class="hover-img" src="{{ asset('/') }}website/assets/imgs/shop/product-5-2.jpg" alt="">
+                                            <img class="default-img"
+                                                 src="{{ asset('/') }}website/assets/imgs/shop/product-5-2.jpg" alt="">
+                                            <img class="hover-img"
+                                                 src="{{ asset('/') }}website/assets/imgs/shop/product-5-2.jpg" alt="">
                                         </a>
                                     </div>
                                     <div class="product-action-1">
-                                        <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+                                        <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal"
+                                           data-bs-target="#quickViewModal">
                                             <i class="fi-rs-search"></i></a>
-                                        <a aria-label="Add To Wishlist" class="action-btn hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                        <a aria-label="Compare" class="action-btn hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
+                                        <a aria-label="Add To Wishlist" class="action-btn hover-up"
+                                           href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
+                                        <a aria-label="Compare" class="action-btn hover-up" href="shop-compare.html"><i
+                                                class="fi-rs-shuffle"></i></a>
                                     </div>
                                     <div class="product-badges product-badges-position product-badges-mrg">
                                         <span class="hot">-22%</span>
@@ -289,7 +324,8 @@
                                         <span class="old-price">$245.8</span>
                                     </div>
                                     <div class="product-action-1 show">
-                                        <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
+                                        <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i
+                                                class="fi-rs-shopping-bag-add"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -299,15 +335,20 @@
                                 <div class="product-img-action-wrap">
                                     <div class="product-img product-img-zoom">
                                         <a href="{{ route('product-detail') }}">
-                                            <img class="default-img" src="{{ asset('/') }}website/assets/imgs/shop/product-8-2.jpg" alt="">
-                                            <img class="hover-img" src="{{ asset('/') }}website/assets/imgs/shop/product-8-1.jpg" alt="">
+                                            <img class="default-img"
+                                                 src="{{ asset('/') }}website/assets/imgs/shop/product-8-2.jpg" alt="">
+                                            <img class="hover-img"
+                                                 src="{{ asset('/') }}website/assets/imgs/shop/product-8-1.jpg" alt="">
                                         </a>
                                     </div>
                                     <div class="product-action-1">
-                                        <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+                                        <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal"
+                                           data-bs-target="#quickViewModal">
                                             <i class="fi-rs-search"></i></a>
-                                        <a aria-label="Add To Wishlist" class="action-btn hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                        <a aria-label="Compare" class="action-btn hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
+                                        <a aria-label="Add To Wishlist" class="action-btn hover-up"
+                                           href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
+                                        <a aria-label="Compare" class="action-btn hover-up" href="shop-compare.html"><i
+                                                class="fi-rs-shuffle"></i></a>
                                     </div>
                                     <div class="product-badges product-badges-position product-badges-mrg">
                                         <span class="new">New</span>
@@ -327,7 +368,8 @@
                                         <span>$1275.85 </span>
                                     </div>
                                     <div class="product-action-1 show">
-                                        <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
+                                        <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i
+                                                class="fi-rs-shopping-bag-add"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -337,15 +379,20 @@
                                 <div class="product-img-action-wrap">
                                     <div class="product-img product-img-zoom">
                                         <a href="{{ route('product-detail') }}">
-                                            <img class="default-img" src="{{ asset('/') }}website/assets/imgs/shop/product-11-1.jpg" alt="">
-                                            <img class="hover-img" src="{{ asset('/') }}website/assets/imgs/shop/product-11-2.jpg" alt="">
+                                            <img class="default-img"
+                                                 src="{{ asset('/') }}website/assets/imgs/shop/product-11-1.jpg" alt="">
+                                            <img class="hover-img"
+                                                 src="{{ asset('/') }}website/assets/imgs/shop/product-11-2.jpg" alt="">
                                         </a>
                                     </div>
                                     <div class="product-action-1">
-                                        <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+                                        <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal"
+                                           data-bs-target="#quickViewModal">
                                             <i class="fi-rs-search"></i></a>
-                                        <a aria-label="Add To Wishlist" class="action-btn hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                        <a aria-label="Compare" class="action-btn hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
+                                        <a aria-label="Add To Wishlist" class="action-btn hover-up"
+                                           href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
+                                        <a aria-label="Compare" class="action-btn hover-up" href="shop-compare.html"><i
+                                                class="fi-rs-shuffle"></i></a>
                                     </div>
                                 </div>
                                 <div class="product-content-wrap">
@@ -363,7 +410,8 @@
                                         <span class="old-price">$245.8</span>
                                     </div>
                                     <div class="product-action-1 show">
-                                        <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
+                                        <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i
+                                                class="fi-rs-shopping-bag-add"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -373,15 +421,20 @@
                                 <div class="product-img-action-wrap">
                                     <div class="product-img product-img-zoom">
                                         <a href="{{ route('product-detail') }}">
-                                            <img class="default-img" src="{{ asset('/') }}website/assets/imgs/shop/product-13-1.jpg" alt="">
-                                            <img class="hover-img" src="{{ asset('/') }}website/assets/imgs/shop/product-13-2.jpg" alt="">
+                                            <img class="default-img"
+                                                 src="{{ asset('/') }}website/assets/imgs/shop/product-13-1.jpg" alt="">
+                                            <img class="hover-img"
+                                                 src="{{ asset('/') }}website/assets/imgs/shop/product-13-2.jpg" alt="">
                                         </a>
                                     </div>
                                     <div class="product-action-1">
-                                        <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+                                        <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal"
+                                           data-bs-target="#quickViewModal">
                                             <i class="fi-rs-search"></i></a>
-                                        <a aria-label="Add To Wishlist" class="action-btn hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                        <a aria-label="Compare" class="action-btn hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
+                                        <a aria-label="Add To Wishlist" class="action-btn hover-up"
+                                           href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
+                                        <a aria-label="Compare" class="action-btn hover-up" href="shop-compare.html"><i
+                                                class="fi-rs-shuffle"></i></a>
                                     </div>
                                 </div>
                                 <div class="product-content-wrap">
@@ -399,7 +452,8 @@
                                         <span class="old-price">$245.8</span>
                                     </div>
                                     <div class="product-action-1 show">
-                                        <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
+                                        <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i
+                                                class="fi-rs-shopping-bag-add"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -409,15 +463,20 @@
                                 <div class="product-img-action-wrap">
                                     <div class="product-img product-img-zoom">
                                         <a href="{{ route('product-detail') }}">
-                                            <img class="default-img" src="{{ asset('/') }}website/assets/imgs/shop/product-3-1.jpg" alt="">
-                                            <img class="hover-img" src="{{ asset('/') }}website/assets/imgs/shop/product-3-2.jpg" alt="">
+                                            <img class="default-img"
+                                                 src="{{ asset('/') }}website/assets/imgs/shop/product-3-1.jpg" alt="">
+                                            <img class="hover-img"
+                                                 src="{{ asset('/') }}website/assets/imgs/shop/product-3-2.jpg" alt="">
                                         </a>
                                     </div>
                                     <div class="product-action-1">
-                                        <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+                                        <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal"
+                                           data-bs-target="#quickViewModal">
                                             <i class="fi-rs-search"></i></a>
-                                        <a aria-label="Add To Wishlist" class="action-btn hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                        <a aria-label="Compare" class="action-btn hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
+                                        <a aria-label="Add To Wishlist" class="action-btn hover-up"
+                                           href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
+                                        <a aria-label="Compare" class="action-btn hover-up" href="shop-compare.html"><i
+                                                class="fi-rs-shuffle"></i></a>
                                     </div>
                                     <div class="product-badges product-badges-position product-badges-mrg">
                                         <span class="hot">Hot</span>
@@ -438,7 +497,8 @@
                                         <span class="old-price">$245.8</span>
                                     </div>
                                     <div class="product-action-1 show">
-                                        <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
+                                        <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i
+                                                class="fi-rs-shopping-bag-add"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -448,15 +508,20 @@
                                 <div class="product-img-action-wrap">
                                     <div class="product-img product-img-zoom">
                                         <a href="{{ route('product-detail') }}">
-                                            <img class="default-img" src="{{ asset('/') }}website/assets/imgs/shop/product-2-1.jpg" alt="">
-                                            <img class="hover-img" src="{{ asset('/') }}website/assets/imgs/shop/product-2-2.jpg" alt="">
+                                            <img class="default-img"
+                                                 src="{{ asset('/') }}website/assets/imgs/shop/product-2-1.jpg" alt="">
+                                            <img class="hover-img"
+                                                 src="{{ asset('/') }}website/assets/imgs/shop/product-2-2.jpg" alt="">
                                         </a>
                                     </div>
                                     <div class="product-action-1">
-                                        <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+                                        <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal"
+                                           data-bs-target="#quickViewModal">
                                             <i class="fi-rs-search"></i></a>
-                                        <a aria-label="Add To Wishlist" class="action-btn hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                        <a aria-label="Compare" class="action-btn hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
+                                        <a aria-label="Add To Wishlist" class="action-btn hover-up"
+                                           href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
+                                        <a aria-label="Compare" class="action-btn hover-up" href="shop-compare.html"><i
+                                                class="fi-rs-shuffle"></i></a>
                                     </div>
                                     <div class="product-badges product-badges-position product-badges-mrg">
                                         <span class="new">New</span>
@@ -477,7 +542,8 @@
                                         <span class="old-price">$255.8</span>
                                     </div>
                                     <div class="product-action-1 show">
-                                        <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
+                                        <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i
+                                                class="fi-rs-shopping-bag-add"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -487,15 +553,20 @@
                                 <div class="product-img-action-wrap">
                                     <div class="product-img product-img-zoom">
                                         <a href="{{ route('product-detail') }}">
-                                            <img class="default-img" src="{{ asset('/') }}website/assets/imgs/shop/product-7-2.jpg" alt="">
-                                            <img class="hover-img" src="{{ asset('/') }}website/assets/imgs/shop/product-7-1.jpg" alt="">
+                                            <img class="default-img"
+                                                 src="{{ asset('/') }}website/assets/imgs/shop/product-7-2.jpg" alt="">
+                                            <img class="hover-img"
+                                                 src="{{ asset('/') }}website/assets/imgs/shop/product-7-1.jpg" alt="">
                                         </a>
                                     </div>
                                     <div class="product-action-1">
-                                        <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+                                        <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal"
+                                           data-bs-target="#quickViewModal">
                                             <i class="fi-rs-search"></i></a>
-                                        <a aria-label="Add To Wishlist" class="action-btn hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                        <a aria-label="Compare" class="action-btn hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
+                                        <a aria-label="Add To Wishlist" class="action-btn hover-up"
+                                           href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
+                                        <a aria-label="Compare" class="action-btn hover-up" href="shop-compare.html"><i
+                                                class="fi-rs-shuffle"></i></a>
                                     </div>
                                     <div class="product-badges product-badges-position product-badges-mrg">
                                         <span class="best">Best Sell</span>
@@ -516,7 +587,8 @@
                                         <span class="old-price">$445.8</span>
                                     </div>
                                     <div class="product-action-1 show">
-                                        <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
+                                        <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i
+                                                class="fi-rs-shopping-bag-add"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -531,7 +603,8 @@
                                 <li class="page-item"><a class="page-link" href="#">03</a></li>
                                 <li class="page-item"><a class="page-link dot" href="#">...</a></li>
                                 <li class="page-item"><a class="page-link" href="#">16</a></li>
-                                <li class="page-item"><a class="page-link" href="#"><i class="fi-rs-angle-double-small-right"></i></a></li>
+                                <li class="page-item"><a class="page-link" href="#"><i
+                                            class="fi-rs-angle-double-small-right"></i></a></li>
                             </ul>
                         </nav>
                     </div>
@@ -560,7 +633,8 @@
                                 <div id="slider-range"></div>
                                 <div class="price_slider_amount">
                                     <div class="label-input">
-                                        <span>Range:</span><input type="text" id="amount" name="price" placeholder="Add Your Price" />
+                                        <span>Range:</span><input type="text" id="amount" name="price"
+                                                                  placeholder="Add Your Price"/>
                                     </div>
                                 </div>
                             </div>
@@ -569,29 +643,41 @@
                             <div class="list-group-item mb-10 mt-10">
                                 <label class="fw-900">Color</label>
                                 <div class="custome-checkbox">
-                                    <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox1" value="">
+                                    <input class="form-check-input" type="checkbox" name="checkbox"
+                                           id="exampleCheckbox1" value="">
                                     <label class="form-check-label" for="exampleCheckbox1"><span>Red (56)</span></label>
                                     <br>
-                                    <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox2" value="">
-                                    <label class="form-check-label" for="exampleCheckbox2"><span>Green (78)</span></label>
+                                    <input class="form-check-input" type="checkbox" name="checkbox"
+                                           id="exampleCheckbox2" value="">
+                                    <label class="form-check-label"
+                                           for="exampleCheckbox2"><span>Green (78)</span></label>
                                     <br>
-                                    <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox3" value="">
-                                    <label class="form-check-label" for="exampleCheckbox3"><span>Blue (54)</span></label>
+                                    <input class="form-check-input" type="checkbox" name="checkbox"
+                                           id="exampleCheckbox3" value="">
+                                    <label class="form-check-label"
+                                           for="exampleCheckbox3"><span>Blue (54)</span></label>
                                 </div>
                                 <label class="fw-900 mt-15">Item Condition</label>
                                 <div class="custome-checkbox">
-                                    <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox11" value="">
-                                    <label class="form-check-label" for="exampleCheckbox11"><span>New (1506)</span></label>
+                                    <input class="form-check-input" type="checkbox" name="checkbox"
+                                           id="exampleCheckbox11" value="">
+                                    <label class="form-check-label"
+                                           for="exampleCheckbox11"><span>New (1506)</span></label>
                                     <br>
-                                    <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox21" value="">
-                                    <label class="form-check-label" for="exampleCheckbox21"><span>Refurbished (27)</span></label>
+                                    <input class="form-check-input" type="checkbox" name="checkbox"
+                                           id="exampleCheckbox21" value="">
+                                    <label class="form-check-label"
+                                           for="exampleCheckbox21"><span>Refurbished (27)</span></label>
                                     <br>
-                                    <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox31" value="">
-                                    <label class="form-check-label" for="exampleCheckbox31"><span>Used (45)</span></label>
+                                    <input class="form-check-input" type="checkbox" name="checkbox"
+                                           id="exampleCheckbox31" value="">
+                                    <label class="form-check-label"
+                                           for="exampleCheckbox31"><span>Used (45)</span></label>
                                 </div>
                             </div>
                         </div>
-                        <a href="shop-grid-right.html" class="btn btn-sm btn-default"><i class="fi-rs-filter mr-5"></i> Fillter</a>
+                        <a href="shop-grid-right.html" class="btn btn-sm btn-default"><i class="fi-rs-filter mr-5"></i>
+                            Fillter</a>
                     </div>
                     <!-- Product sidebar Widget -->
                     <div class="sidebar-widget product-sidebar  mb-30 p-30 bg-grey border-radius-10">

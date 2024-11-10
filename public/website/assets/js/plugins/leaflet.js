@@ -136,11 +136,10 @@
             }
 
 
-
             map.attributionControl.addAttribution('Population data &copy; <a href="http://census.gov/">US Census Bureau</a>');
 
 
-            var legend = L.control({ position: 'bottomright' });
+            var legend = L.control({position: 'bottomright'});
 
             legend.onAdd = function (map) {
 
@@ -189,7 +188,7 @@
                 pane: 'labels'
             }).addTo(map);
 
-            map.setView({ lat: 47.040182144806664, lng: 9.667968750000002 }, 4);
+            map.setView({lat: 47.040182144806664, lng: 9.667968750000002}, 4);
         }
     }
     var multiMarkColors = function () {
@@ -240,15 +239,15 @@
             });
 
             // bind markers with popup
-            var marker1 = L.marker([39.3262345, -4.8380649], { icon: markerIcon1 }).addTo(leaflet);
-            var marker2 = L.marker([41.804, 13.843], { icon: markerIcon2 }).addTo(leaflet);
-            var marker3 = L.marker([51.11, 10.371], { icon: markerIcon3 }).addTo(leaflet);
-            var marker4 = L.marker([46.74, 2.417], { icon: markerIcon4 }).addTo(leaflet);
+            var marker1 = L.marker([39.3262345, -4.8380649], {icon: markerIcon1}).addTo(leaflet);
+            var marker2 = L.marker([41.804, 13.843], {icon: markerIcon2}).addTo(leaflet);
+            var marker3 = L.marker([51.11, 10.371], {icon: markerIcon3}).addTo(leaflet);
+            var marker4 = L.marker([46.74, 2.417], {icon: markerIcon4}).addTo(leaflet);
 
-            marker1.bindPopup("Spain", { closeButton: false });
-            marker2.bindPopup("Italy", { closeButton: false });
-            marker3.bindPopup("Germany", { closeButton: false });
-            marker4.bindPopup("France", { closeButton: false });
+            marker1.bindPopup("Spain", {closeButton: false});
+            marker2.bindPopup("Italy", {closeButton: false});
+            marker3.bindPopup("Germany", {closeButton: false});
+            marker4.bindPopup("France", {closeButton: false});
 
             L.control.scale().addTo(leaflet);
         }
@@ -266,7 +265,6 @@
                 attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
             }).addTo(leaflet);
 
-            
 
             // Define Marker Layer
             var markerLayer = L.layerGroup().addTo(leaflet);
@@ -287,7 +285,7 @@
                         return;
                     }
                     markerLayer.clearLayers(); // remove this line to allow multi-markers on click
-                    L.marker(result.latlng, { icon: markerIcon }).addTo(markerLayer).bindPopup(result.address.Match_addr, { closeButton: false }).openPopup();
+                    L.marker(result.latlng, {icon: markerIcon}).addTo(markerLayer).bindPopup(result.address.Match_addr, {closeButton: false}).openPopup();
                     alert(`You've clicked on the following address: ${result.address.Match_addr}`);
                 });
             });
@@ -298,33 +296,33 @@
         if ($('#map-multi-mark').length) {
             // add sample location data
             var data = [
-                { "location": [41.575330, 13.102411], "title": "One" },
-                { "location": [41.575730, 13.002411], "title": "Two" },
-                { "location": [41.807149, 13.162994], "title": "Three" },
-                { "location": [41.507149, 13.172994], "title": "Four" },
-                { "location": [41.847149, 14.132994], "title": "Five" },
-                { "location": [41.219190, 13.062145], "title": "Six" },
-                { "location": [41.344190, 13.242145], "title": "Seven" },
-                { "location": [41.679190, 13.122145], "title": "Eight" },
-                { "location": [41.329190, 13.192145], "title": "Nine" },
-                { "location": [41.379290, 13.122545], "title": "Ten" },
-                { "location": [41.409190, 13.362145], "title": "Elevent" },
-                { "location": [41.794008, 12.583884], "title": "Twelve" },
-                { "location": [41.805008, 12.982884], "title": "Thirteen" },
-                { "location": [41.536175, 13.273590], "title": "Fourteen" },
-                { "location": [41.516175, 13.373590], "title": "Fifteen" },
-                { "location": [41.507175, 13.273690], "title": "Sixteen" },
-                { "location": [41.836175, 13.673590], "title": "Seventeen" },
-                { "location": [41.796175, 13.570590], "title": "Eighteen" },
-                { "location": [41.436175, 13.573590], "title": "Nineteen" },
-                { "location": [41.336175, 13.973590], "title": "Tweenty" },
-                { "location": [41.236175, 13.273590], "title": "Tweenty One" },
-                { "location": [41.546175, 13.473590], "title": "Tweenty Two" },
-                { "location": [41.239290, 13.032145], "title": "Tweenty Three" }
+                {"location": [41.575330, 13.102411], "title": "One"},
+                {"location": [41.575730, 13.002411], "title": "Two"},
+                {"location": [41.807149, 13.162994], "title": "Three"},
+                {"location": [41.507149, 13.172994], "title": "Four"},
+                {"location": [41.847149, 14.132994], "title": "Five"},
+                {"location": [41.219190, 13.062145], "title": "Six"},
+                {"location": [41.344190, 13.242145], "title": "Seven"},
+                {"location": [41.679190, 13.122145], "title": "Eight"},
+                {"location": [41.329190, 13.192145], "title": "Nine"},
+                {"location": [41.379290, 13.122545], "title": "Ten"},
+                {"location": [41.409190, 13.362145], "title": "Elevent"},
+                {"location": [41.794008, 12.583884], "title": "Twelve"},
+                {"location": [41.805008, 12.982884], "title": "Thirteen"},
+                {"location": [41.536175, 13.273590], "title": "Fourteen"},
+                {"location": [41.516175, 13.373590], "title": "Fifteen"},
+                {"location": [41.507175, 13.273690], "title": "Sixteen"},
+                {"location": [41.836175, 13.673590], "title": "Seventeen"},
+                {"location": [41.796175, 13.570590], "title": "Eighteen"},
+                {"location": [41.436175, 13.573590], "title": "Nineteen"},
+                {"location": [41.336175, 13.973590], "title": "Tweenty"},
+                {"location": [41.236175, 13.273590], "title": "Tweenty One"},
+                {"location": [41.546175, 13.473590], "title": "Tweenty Two"},
+                {"location": [41.239290, 13.032145], "title": "Tweenty Three"}
             ];
 
             // init leaflet map
-            var leaflet = new L.Map('map-multi-mark', { zoom: 10, center: new L.latLng(data[0].location) });
+            var leaflet = new L.Map('map-multi-mark', {zoom: 10, center: new L.latLng(data[0].location)});
 
             leaflet.addLayer(new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'));
 
@@ -342,8 +340,8 @@
 
             // set markers
             data.forEach(function (item) {
-                var marker = L.marker(item.location, { icon: leafletIcon }).addTo(leaflet);
-                marker.bindPopup(item.title, { closeButton: false });
+                var marker = L.marker(item.location, {icon: leafletIcon}).addTo(leaflet);
+                marker.bindPopup(item.title, {closeButton: false});
             })
         }
     }
@@ -357,7 +355,7 @@
         multiMarkColors();
         MultiMark();
         interactiveMap();
-        
+
     });
 
 })(jQuery);

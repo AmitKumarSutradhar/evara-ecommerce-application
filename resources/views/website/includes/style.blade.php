@@ -1,4 +1,3 @@
-
 <!-- Favicon -->
 <link rel="shortcut icon" type="image/x-icon" href="{{ asset('') }}website/assets/imgs/theme/favicon.svg">
 <!-- Template CSS -->

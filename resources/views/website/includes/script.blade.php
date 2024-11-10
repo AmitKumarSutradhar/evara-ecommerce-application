@@ -1,4 +1,3 @@
-
 <!-- Vendor JS-->
 <script src="{{ asset('/') }}website/assets/js/vendor/modernizr-3.6.0.min.js"></script>
 <script src="{{ asset('/') }}website/assets/js/vendor/jquery-3.6.0.min.js"></script>
