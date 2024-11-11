@@ -1,5 +1,4 @@
 @extends('admin.master')
-@section('title' , 'Manage Category')
+@section('title' , 'Hello')
 @section('body')
-
 @endsection
