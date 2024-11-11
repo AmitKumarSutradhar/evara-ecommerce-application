@@ -28,18 +28,20 @@
                         <div class="row mb-4">
                             <label for="firstName" class="col-md-3 form-label">Category Name</label>
                             <div class="col-md-9">
-                               <select class="form-control" name="category_id">
-                                   <option value="">-- Select Category --</option>
+                               <select class="form-control" name="category_id" required>
+                                   <option value="" disabled selected>-- Select Category --</option>
                                    @foreach($categories as $category)
                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                                    @endforeach
                                </select>
+                                <span class="text-danger">{{ $errors->has('category_id') ?  $errors->first('category_id') : '' }}</span>
                             </div>
                         </div>
                         <div class="row mb-4">
                             <label for="firstName" class="col-md-3 form-label">Sub Category Name</label>
                             <div class="col-md-9">
                                 <input class="form-control" id="firstName" name="name" placeholder="Category Name" type="text">
+                                <span class="text-danger">{{ $errors->has('name') ?  $errors->first('name') : '' }}</span>
                             </div>
                         </div>
                         <div class="row mb-4">
