@@ -24,6 +24,7 @@
                 <div class="card-body">
                     <p class="text-muted">{{ session('message') }}</p>
                     <form action="{{ route('sub-category.update', $sub_category->id) }}" method="POST" enctype="multipart/form-data" class="form-horizontal">
+                        @method('PUT')
                         @csrf
                         <div class="row mb-4">
                             <label for="firstName" class="col-md-3 form-label">Category Name</label>

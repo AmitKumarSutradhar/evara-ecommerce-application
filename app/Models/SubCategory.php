@@ -30,11 +30,42 @@ class SubCategory extends Model
         self::$imageUrl = $request->file('image') ?  self::getImageUrl($request) : '';
 
         self::$subCategory                  = new SubCategory();
-        self::$subCategory->category_id     = $request->category_id;
-        self::$subCategory->name            = $request->name;
-        self::$subCategory->description     = $request->description;
-        self::$subCategory->image           = self::$imageUrl;
-        self::$subCategory->status          = $request->status;
-        self::$subCategory->save();
+        self::saveBasicInfo(self::$subCategory, $request, self::$imageUrl);
+    }
+
+    public static function updateSubCategory($request, $subCategory){
+
+        if($request->file('image')){
+          if (file_exists($subCategory->image)){
+              unlink($subCategory->image);
+          }
+          self::$imageUrl = self::getImageUrl($request);
+        } else {
+            self::$imageUrl = $subCategory->image;
+        }
+
+        self::$imageUrl = $request->file('image') ?  self::getImageUrl($request) : '';
+
+        self::saveBasicInfo($subCategory, $request, self::$imageUrl);
+    }
+
+    private static function saveBasicInfo($subCategory, $request, $imageUrl){
+        $subCategory->category_id     = $request->category_id;
+        $subCategory->name            = $request->name;
+        $subCategory->description     = $request->description;
+        $subCategory->image           = $imageUrl;
+        $subCategory->status          = $request->status;
+        $subCategory->save();
+    }
+
+    public static function deleteSubCategory($subCategory){
+        if (file_exists($subCategory->image)){
+            unlink($subCategory->image);
+        }
+        $subCategory->delete();
+    }
+
+    public function category(){
+        return $this->belongsTo(Category::class);
     }
 }
