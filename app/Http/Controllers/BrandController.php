@@ -12,7 +12,9 @@ class BrandController extends Controller
      */
     public function index()
     {
-        return view('admin.brand.index');
+        return view('admin.brand.index',[
+            'brands' => Brand::all(),
+        ]);
     }
 
     /**
@@ -28,7 +30,8 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Brand::newBrand($request);
+        return back()->with('message', 'Brand info created successfully.');
     }
 
     /**
@@ -44,7 +47,9 @@ class BrandController extends Controller
      */
     public function edit(Brand $brand)
     {
-        return view('admin.brand.edit');
+        return view('admin.brand.edit', [
+            'brand' => $brand,
+        ]);
     }
 
     /**
@@ -52,7 +57,8 @@ class BrandController extends Controller
      */
     public function update(Request $request, Brand $brand)
     {
-        //
+         Brand::updateBrand($request, $brand);
+         return back()->with('message', 'Brand info updated successfully.');
     }
 
     /**
@@ -60,6 +66,7 @@ class BrandController extends Controller
      */
     public function destroy(Brand $brand)
     {
-        //
+        Brand::deleteBrand($brand);
+        return back()->with('message', 'Brand info deleted successfully.');
     }
 }
