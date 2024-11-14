@@ -21,10 +21,11 @@ class Category extends Model
     }
 
     public static function newCategory($request){
+        self::$imageUrl = $request->file('image') ? self::getImageUrl($request) :  '';
         self::$category = new Category();
         self::$category->name = $request->name;
         self::$category->description = $request->description;
-        self::$category->image = self::getImageUrl($request);
+        self::$category->image = self::$imageUrl;
         self::$category->status = $request->status;
         self::$category->save();
     }
