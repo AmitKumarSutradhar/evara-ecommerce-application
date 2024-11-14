@@ -12,7 +12,9 @@ class UnitController extends Controller
      */
     public function index()
     {
-        return view('admin.unit.index');
+        return view('admin.unit.index',[
+            'units' => Unit::all(),
+        ]);
     }
 
     /**
@@ -28,7 +30,8 @@ class UnitController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Unit::newUnit($request);
+        return redirect()->route('unit.index')->with('message', 'Unit info added successfully.');
     }
 
     /**
@@ -52,7 +55,8 @@ class UnitController extends Controller
      */
     public function update(Request $request, Unit $unit)
     {
-        //
+        Unit::updateUnit($request, $unit);
+        return back()->with('message','Unit info updated successfully.');
     }
 
     /**
@@ -60,6 +64,7 @@ class UnitController extends Controller
      */
     public function destroy(Unit $unit)
     {
-        //
+        Unit::deleteUnit($unit);
+        return redirect()->route('unit.index')->with('message','Unit info deleted successfully.');
     }
 }

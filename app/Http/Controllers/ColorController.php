@@ -28,7 +28,8 @@ class ColorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Color::newColor($request);
+        return redirect()->route('color.index')->with('message', 'Color added successfully.');
     }
 
     /**
@@ -52,7 +53,8 @@ class ColorController extends Controller
      */
     public function update(Request $request, Color $color)
     {
-        //
+        Color::updateColor($request, $color);
+        return back()->with('message', 'Color info updated successfully.');
     }
 
     /**
@@ -60,6 +62,7 @@ class ColorController extends Controller
      */
     public function destroy(Color $color)
     {
-        //
+        Color::deleteColor($color);
+        return redirect()->route('color.index')->with('message', 'Color info deleted successfully.');
     }
 }

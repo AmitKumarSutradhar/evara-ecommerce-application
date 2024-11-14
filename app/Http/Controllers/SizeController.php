@@ -28,7 +28,8 @@ class SizeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Size::newSize($request);
+        return redirect()->route('size.index')->with('Size info added successfully.');
     }
 
     /**
@@ -52,7 +53,8 @@ class SizeController extends Controller
      */
     public function update(Request $request, Size $size)
     {
-        //
+        Size::updateSize($request, $size);
+        return redirect()->route('size.index')->with('Size info updated successfully.');
     }
 
     /**
@@ -60,6 +62,7 @@ class SizeController extends Controller
      */
     public function destroy(Size $size)
     {
-        //
+        Size::deleteSize($size);
+        return redirect()->route('size.index')->with('Size info deleted successfully.');
     }
 }
