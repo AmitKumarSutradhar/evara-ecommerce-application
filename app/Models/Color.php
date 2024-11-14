@@ -23,6 +23,7 @@ class Color extends Model
 
     private static function saveBasicInfo($color, $request){
         $color->name            = $request->name;
+        $color->code            = $request->code;
         $color->description     = $request->description;
         $color->status          = $request->status;
         $color->save();

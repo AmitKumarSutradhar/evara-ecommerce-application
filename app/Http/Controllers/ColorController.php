@@ -12,7 +12,9 @@ class ColorController extends Controller
      */
     public function index()
     {
-        return view('admin.color.index');
+        return view('admin.color.index', [
+            'colors' => Color::all(),
+        ]);
     }
 
     /**
@@ -45,7 +47,9 @@ class ColorController extends Controller
      */
     public function edit(Color $color)
     {
-        return view('admin.color.edit');
+        return view('admin.color.edit',[
+            'color' => $color
+        ]);
     }
 
     /**
