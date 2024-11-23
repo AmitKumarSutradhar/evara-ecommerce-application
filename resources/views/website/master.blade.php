@@ -18,6 +18,8 @@
     @yield('body')
 </main>
 
+@include('website.includes.footer')
+
 
 @include('website.includes.script')
 

@@ -1,5 +1,5 @@
 @extends('admin.master')
-@section('title' , 'Manage Sub Category')
+@section('title' , 'Manage Color')
 @section('body')
     <!-- PAGE-HEADER -->
     <div class="page-header">

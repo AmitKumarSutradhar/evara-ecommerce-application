@@ -12,7 +12,9 @@ class SizeController extends Controller
      */
     public function index()
     {
-        return view('admin.size.index');
+        return view('admin.size.index',[
+            'sizes' => Size::all(),
+        ]);
     }
 
     /**
@@ -29,7 +31,7 @@ class SizeController extends Controller
     public function store(Request $request)
     {
         Size::newSize($request);
-        return redirect()->route('size.index')->with('Size info added successfully.');
+        return redirect()->route('size.index')->with('Size info created successfully.');
     }
 
     /**
@@ -45,7 +47,9 @@ class SizeController extends Controller
      */
     public function edit(Size $size)
     {
-        return view('admin.size.edit');
+        return view('admin.size.edit',[
+            'size' => $size,
+        ]);
     }
 
     /**

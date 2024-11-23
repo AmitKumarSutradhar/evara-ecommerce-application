@@ -23,6 +23,7 @@ class Size extends Model
 
     private static function saveBasicInfo($size, $request){
         $size->name            = $request->name;
+        $size->code     = $request->code;
         $size->description     = $request->description;
         $size->status          = $request->status;
         $size->save();

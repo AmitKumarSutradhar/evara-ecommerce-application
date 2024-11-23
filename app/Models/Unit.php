@@ -23,6 +23,7 @@ class Unit extends Model
 
     private static function saveBasicInfo($unit, $request){
         $unit->name            = $request->name;
+        $unit->code            = $request->code;
         $unit->description     = $request->description;
         $unit->status          = $request->status;
         $unit->save();

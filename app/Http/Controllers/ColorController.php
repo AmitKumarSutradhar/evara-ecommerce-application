@@ -31,7 +31,7 @@ class ColorController extends Controller
     public function store(Request $request)
     {
         Color::newColor($request);
-        return redirect()->route('color.index')->with('message', 'Color added successfully.');
+        return redirect()->route('color.index')->with('message', 'Color info created successfully.');
     }
 
     /**
