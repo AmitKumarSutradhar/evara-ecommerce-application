@@ -53,6 +53,12 @@
 <script src="{{ asset('/') }}admin/assets/plugins/datatable/responsive.bootstrap5.min.js"></script>
 <script src="{{ asset('/') }}admin/assets/js/table-data.js"></script>
 
+<!-- SELECT2 JS -->
+<script src="{{ asset('/') }}admin/assets/plugins/select2/select2.full.min.js"></script>
+
+<!-- FORM ELEMENTS JS -->
+<script src="{{ asset('/') }}admin/assets/js/formelementadvnced.js"></script>
+
 
 <!-- COLOR THEME JS -->
 <script src="{{ asset('/') }}admin/assets/js/themeColors.js"></script>

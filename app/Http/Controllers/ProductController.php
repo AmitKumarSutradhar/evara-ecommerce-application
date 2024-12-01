@@ -2,7 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
+use App\Models\Category;
+use App\Models\Color;
 use App\Models\Product;
+use App\Models\Size;
+use App\Models\SubCategory;
+use App\Models\Unit;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -12,7 +18,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.product.index');
     }
 
     /**
@@ -20,7 +26,14 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.product.add',[
+            'categories'        => Category::all(),
+            'subCategories'     => SubCategory::all(),
+            'brands'            => Brand::all(),
+            'units'             => Unit::all(),
+            'colors'            => Color::all(),
+            'sizes'             => Size::all(),
+        ]);
     }
 
     /**
@@ -44,7 +57,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        return view('admin.product.edit', ['product' => $product]);
     }
 
     /**
