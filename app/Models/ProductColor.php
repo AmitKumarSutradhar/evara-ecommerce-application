@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class ProductColor extends Model
 {
     use HasFactory;
+
+    private $productColor;
+
+    private static function newProductColor ($colors, $id) {
+        foreach ( $colors as $color) {
+            self::$productColor = new ProductColor();
+            self::$productColor->product_id = $id;
+            self::$productColor->color_id = $color;
+            self::$productColor->save();
+        }
+    }
 }

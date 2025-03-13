@@ -141,7 +141,7 @@
                         <div class="row mb-4">
                             <label for="longDescription" class="col-md-3 form-label">Long Description</label>
                             <div class="col-md-9">
-                                <textarea class="form-control" name="long_description" id="summernote" placeholder="Enter your description"></textarea>
+                                <textarea class="form-control" id="summernote" name="long_description"  placeholder="Enter your description"></textarea>
                             </div>
                         </div>
 
