@@ -13,6 +13,9 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+
+    private $subCategories;
+
     /**
      * Display a listing of the resource.
      */
@@ -41,7 +44,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request;
     }
 
     /**
@@ -74,5 +77,10 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         //
+    }
+
+    public function getSubcategoryByCategory(){
+        $this->subCategories = SubCategory::where('category_id', $_GET['id'])->get();
+        return response()->json($this->subCategories);
     }
 }
