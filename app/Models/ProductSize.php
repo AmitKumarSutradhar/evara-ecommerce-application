@@ -9,9 +9,9 @@ class ProductSize extends Model
 {
     use HasFactory;
 
-    private $productSize;
+    private static $productSize;
 
-    private static function newProductSize ($sizes, $id) {
+    public static function newProductSize ($sizes, $id) {
         foreach ( $sizes as $size) {
             self::$productSize = new ProductSize();
             self::$productSize->product_id = $id;

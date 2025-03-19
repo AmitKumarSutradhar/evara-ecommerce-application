@@ -9,9 +9,9 @@ class ProductColor extends Model
 {
     use HasFactory;
 
-    private $productColor;
+    private static $productColor;
 
-    private static function newProductColor ($colors, $id) {
+    public static function newProductColor ($colors, $id) {
         foreach ( $colors as $color) {
             self::$productColor = new ProductColor();
             self::$productColor->product_id = $id;

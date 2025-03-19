@@ -13,7 +13,7 @@ class Product extends Model
     //     ''
     // ];
 
-    private $product, $image, $imageName,  $extension, $directory, $imageUrl;
+    private static $product, $image, $imageName, $extension, $directory, $imageUrl;
 
     private static function getImageUrl($request)
     {
@@ -49,6 +49,6 @@ class Product extends Model
         self::$product->status                  = $request->status;
         self::$product->save();
 
-        return self::$product->save();
+        return self::$product;
     }
 }

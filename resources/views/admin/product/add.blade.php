@@ -22,7 +22,7 @@
                     <h3 class="card-title">Add Product Form</h3>
                 </div>
                 <div class="card-body">
-                    <p class="text-muted">{{ session('message') }}</p>
+                    <p class="text-success">{{ session('message') }}</p>
                     <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data"
                         class="form-horizontal">
                         @csrf
@@ -86,7 +86,7 @@
                         <div class="row mb-4">
                             <label for="firstName" class="col-md-3 form-label">Color Name</label>
                             <div class="col-md-9 form-group">
-                                <select multiple class="form-control select2-show-search" name="color_id[]"
+                                <select multiple class="form-control select2-show-search" name="colors[]"
                                     data-placeholder="Choose Color">
                                     <option label="Choose Color"></option>
                                     @foreach ($colors as $color)
@@ -94,14 +94,14 @@
                                     @endforeach
                                 </select>
                                 <span
-                                    class="text-danger">{{ $errors->has('color_id') ? $errors->first('color_id') : '' }}</span>
+                                    class="text-danger">{{ $errors->has('color_id') ? $errors->first('colors') : '' }}</span>
                             </div>
                         </div>
 
                         <div class="row mb-4">
                             <label for="firstName" class="col-md-3 form-label">Size Name</label>
                             <div class="col-md-9 form-group">
-                                <select multiple class="form-control select2-show-search" name="size_id[]"
+                                <select multiple class="form-control select2-show-search" name="sizes[]"
                                     data-placeholder="Choose Size" required>
                                     <option label="Choose Size"></option>
                                     @foreach ($sizes as $size)
@@ -141,7 +141,7 @@
                         <div class="row mb-4">
                             <label for="longDescription" class="col-md-3 form-label">Long Description</label>
                             <div class="col-md-9">
-                                <textarea class="form-control" id="summernote" name="long_description"  placeholder="Enter your description"></textarea>
+                                <textarea class="form-control" id="summernote" name="long_description" placeholder="Enter your description"></textarea>
                             </div>
                         </div>
 
@@ -149,7 +149,9 @@
                             <label for="email" class="col-md-3 form-label">Product Image</label>
                             <div class="col-md-9">
                                 {{-- <input id="imgInp" class="form-control" name="image" type="file"> --}}
-                                <input type="file" name="image" class="dropify" data-height="200" />
+                                <input type="file" name="image" class="dropify"
+                                    accept=" image/jpeg, image/png, text/html, application/zip, text/css, text/js"
+                                    data-height="200" />
                                 <img id="categoryImage" />
                             </div>
                         </div>
@@ -157,7 +159,7 @@
                         <div class="row mb-4">
                             <label for="email" class="col-md-3 form-label">Product Other Images</label>
                             <div class="col-md-9">
-                                <input id="demo" type="file" name="other_images"
+                                <input type="file" name="other_images[]" class="form-control"
                                     accept=" image/jpeg, image/png, text/html, application/zip, text/css, text/js"
                                     multiple />
                             </div>

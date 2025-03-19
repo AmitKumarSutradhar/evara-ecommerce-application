@@ -9,15 +9,14 @@ class ProductImage extends Model
 {
     use HasFactory;
 
-    private $productImage, $image, $imageName,  $extension, $directory;
+    private static $productImage, $image, $imageName,  $extension, $directory;
 
-    private static function getImageUrl($request)
+    private static function getImageUrl($image)
     {
-        self::$image = $request->file("image");
-        self::$extension = self::$image->getClientOriginalExtension();
+        self::$extension = $image->getClientOriginalExtension();
         self::$imageName = rand(0, 500000).'.'.self::$extension;
         self::$directory = 'upload/product-other-images/';
-        self::$image->move(self::$directory, self::$imageName);
+        $image->move(self::$directory, self::$imageName);
         return self::$directory . self::$imageName;
     }
 
