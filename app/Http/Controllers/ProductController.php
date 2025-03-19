@@ -71,7 +71,15 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        return view('admin.product.edit', ['product' => $product]);
+        return view('admin.product.edit',[
+            'product'           => $product,
+            'categories'        => Category::all(),
+            'subCategories'     => SubCategory::all(),
+            'brands'            => Brand::all(),
+            'units'             => Unit::all(),
+            'colors'            => Color::all(),
+            'sizes'             => Size::all(),
+        ]);
     }
 
     /**

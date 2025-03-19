@@ -45,7 +45,8 @@
                             <th>Product Other Image</th>
                             <td>
                                 @foreach ($product->productImages as $productImage)
-                                    <img src="{{ asset($productImage->image) }}" height="130px" width="150px" alt="">
+                                    <img src="{{ asset($productImage->image) }}" height="130px" width="150px"
+                                          alt="">
                                 @endforeach
                             </td>
                         </tr>
@@ -110,11 +111,11 @@
                         </tr>
                         <tr>
                             <th>Features Status</th>
-                            <td>{{ $product->featured_status == 1 ? 'Featured' :  'Not Featured' }}</td>
+                            <td>{{ $product->featured_status == 1 ? 'Featured' : 'Not Featured' }}</td>
                         </tr>
                         <tr>
                             <th>Publication Status</th>
-                            <td>{{ $product->status == 1 ? 'Active' : "Inactive" }}</td>
+                            <td>{{ $product->status == 1 ? 'Active' : 'Inactive' }}</td>
                         </tr>
                     </table>
                 </div>
