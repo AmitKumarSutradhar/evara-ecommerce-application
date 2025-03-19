@@ -51,4 +51,32 @@ class Product extends Model
 
         return self::$product;
     }
+
+    public function category () {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function subCategory () {
+        return $this->belongsTo(SubCategory::class);
+    }
+
+    public function brand () {
+        return $this->belongsTo(Brand::class);
+    }
+
+    public function unit() {
+        return $this->belongsTo(Unit::class);
+    }
+
+    public function colors() {
+        return $this->hasMany(ProductColor::class, 'product_id', 'id');
+    }
+
+    public function sizes() {
+        return $this->hasMany(ProductSize::class, 'product_id', 'id');
+    }
+
+    public function productImages () {
+        return $this->hasMany(ProductImage::class);
+    }
 }

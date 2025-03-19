@@ -19,4 +19,8 @@ class ProductColor extends Model
             self::$productColor->save();
         }
     }
+
+    public function color (){
+        return $this->belongsTo(Color::class);
+    }
 }

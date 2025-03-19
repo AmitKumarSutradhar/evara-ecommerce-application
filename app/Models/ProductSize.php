@@ -19,4 +19,8 @@ class ProductSize extends Model
             self::$productSize->save();
         }
     }
+
+    public function size () {
+        return $this->belongsTo(Size::class);
+    }
 }
