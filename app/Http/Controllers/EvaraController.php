@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class EvaraController extends Controller
 {
     public function index()
     {
-        return view('website.home.index');
+        return view('website.home.index', [
+            'featuredProducts' => Product::where('featured_status', 1)->limit(8)->get(),
+        ]);
     }
 
     public function category()
@@ -16,7 +20,7 @@ class EvaraController extends Controller
         return view('website.category.index');
     }
 
-    public function product()
+    public function productDetail()
     {
         return view('website.product.index');
     }
