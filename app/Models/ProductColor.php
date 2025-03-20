@@ -9,7 +9,7 @@ class ProductColor extends Model
 {
     use HasFactory;
 
-    private static $productColor;
+    private static $productColor, $productColors;
 
     public static function newProductColor ($colors, $id) {
         foreach ( $colors as $color) {
@@ -22,5 +22,15 @@ class ProductColor extends Model
 
     public function color (){
         return $this->belongsTo(Color::class);
+    }
+
+    public static function updateProductColor($colors, $id){
+        self::$productColors = ProductColor::where('product_id', $id)->get();
+
+        foreach(self::$productColors as $productColor){
+            $productColor->delete();
+        }
+
+        self::newProductColor($colors, $id);
     }
 }

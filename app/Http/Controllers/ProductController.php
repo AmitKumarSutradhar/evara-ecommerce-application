@@ -87,7 +87,14 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        Product::updateProduct($request, $product);
+        ProductColor::updateProductColor($request->colors, $product->id);
+        ProductSize::updateProductSize($request->sizes, $product->id);
+        if($request->other_images) {
+            ProductImage::updateProductImage($request->other_images, $product->id);
+        }
+
+        return redirect()->route('product.index')->with('message', 'Product info updated successfully.');
     }
 
     /**

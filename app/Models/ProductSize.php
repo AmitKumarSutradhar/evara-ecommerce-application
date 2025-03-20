@@ -9,7 +9,7 @@ class ProductSize extends Model
 {
     use HasFactory;
 
-    private static $productSize;
+    private static $productSize, $productSizes;
 
     public static function newProductSize ($sizes, $id) {
         foreach ( $sizes as $size) {
@@ -22,5 +22,16 @@ class ProductSize extends Model
 
     public function size () {
         return $this->belongsTo(Size::class);
+    }
+
+    public static function updateProductSize($sizes, $id)
+    {
+        self::$productSizes = ProductSize::where('product_id', $id)->get();
+
+        foreach(self::$productSizes as $productSize) {
+            $productSize->delete();
+        }
+
+        self::newProductSize($sizes, $id);
     }
 }

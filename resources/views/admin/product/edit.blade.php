@@ -19,12 +19,13 @@
         <div class="col">
             <div class="card">
                 <div class="card-header border-bottom">
-                    <h3 class="card-title">Edit Product Form</h3>
+                    <h3 class="card-title">Edit Product Form</h3>  
                 </div>
                 <div class="card-body">
                     <p class="text-success">{{ session('message') }}</p>
                     <form action="{{ route('product.update', $product->id) }}" method="POST" enctype="multipart/form-data"
                         class="form-horizontal">
+                        @method("PUT")
                         @csrf
                         <div class="row mb-4">
                             <label for="firstName" class="col-md-3 form-label">Category Name</label>
@@ -33,7 +34,9 @@
                                     required>
                                     <option value="" disabled selected>-- Select Category --</option>
                                     @foreach ($categories as $category)
-                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                        <option value="{{ $category->id }}"
+                                            {{ $category->id == $product->category_id ? 'selected' : '' }}>
+                                            {{ $category->name }}</option>
                                     @endforeach
                                 </select>
                                 <span
@@ -46,9 +49,10 @@
                             <div class="col-md-9">
                                 <select class="form-control" name="sub_category_id" id="sub-category" required>
                                     <option value="" disabled selected>-- Select Category First --</option>
-                                    {{-- @foreach ($subCategories as $subCategories)
-                                        <option value="{{ $subCategories->id }}">{{ $subCategories->name }}</option>
-                                    @endforeach --}}
+                                    @foreach ($subCategories as $subCategories)
+                                        <option value="{{ $subCategories->id }}" @selected($subCategories->id == $product->category_id)>
+                                            {{ $subCategories->name }}</option>
+                                    @endforeach
                                 </select>
                                 <span
                                     class="text-danger">{{ $errors->has('sub_category_id') ? $errors->first('sub_category_id') : '' }}</span>
@@ -61,7 +65,8 @@
                                 <select class="form-control" name="brand_id" required>
                                     <option value="" disabled selected>-- Select Brand --</option>
                                     @foreach ($brands as $brand)
-                                        <option value="{{ $brand->id }}">{{ $brand->name }}</option>
+                                        <option value="{{ $brand->id }}" @selected($brand->id == $product->brand_id)>
+                                            {{ $brand->name }}</option>
                                     @endforeach
                                 </select>
                                 <span
@@ -75,7 +80,8 @@
                                 <select class="form-control" name="unit_id" required>
                                     <option value="" disabled selected>-- Select Unit --</option>
                                     @foreach ($units as $unit)
-                                        <option value="{{ $unit->id }}">{{ $unit->name }}</option>
+                                        <option value="{{ $unit->id }}" @selected($unit->id == $product->unit_id)>
+                                            {{ $unit->name }}</option>
                                     @endforeach
                                 </select>
                                 <span
@@ -90,7 +96,9 @@
                                     data-placeholder="Choose Color">
                                     <option label="Choose Color"></option>
                                     @foreach ($colors as $color)
-                                        <option value="{{ $color->id }}">{{ $color->name }}</option>
+                                        <option value="{{ $color->id }}"
+                                            @foreach ($product->colors as $singleColor) @selected($color->id == $singleColor->color_id) @endforeach>
+                                            {{ $color->name }}</option>
                                     @endforeach
                                 </select>
                                 <span
@@ -105,7 +113,10 @@
                                     data-placeholder="Choose Size" required>
                                     <option label="Choose Size"></option>
                                     @foreach ($sizes as $size)
-                                        <option value="{{ $size->id }}">{{ $size->name }}</option>
+                                        <option value="{{ $size->id }}"
+                                            @foreach ($product->sizes as $singleProductSize)
+                                            @selected($singleProductSize->size_id == $size->id) @endforeach>
+                                            {{ $size->name }}</option>
                                     @endforeach
                                 </select>
                                 <span
@@ -116,8 +127,8 @@
                         <div class="row mb-4">
                             <label for="firstName" class="col-md-3 form-label">Product Name</label>
                             <div class="col-md-9">
-                                <input class="form-control" id="firstName" name="name" value="{{ $product->name }}" placeholder="Product Name"
-                                    type="text">
+                                <input class="form-control" id="firstName" name="name" value="{{ $product->name }}"
+                                    placeholder="Product Name" type="text">
                                 <span class="text-danger">{{ $errors->has('name') ? $errors->first('name') : '' }}</span>
                             </div>
                         </div>
@@ -125,8 +136,8 @@
                         <div class="row mb-4">
                             <label for="firstName" class="col-md-3 form-label">Product Code</label>
                             <div class="col-md-9">
-                                <input class="form-control" id="firstName" name="code" value="{{ $product->code }}" placeholder="Product Code"
-                                    type="text">
+                                <input class="form-control" id="firstName" name="code" value="{{ $product->code }}"
+                                    placeholder="Product Code" type="text">
                                 <span class="text-danger">{{ $errors->has('code') ? $errors->first('code') : '' }}</span>
                             </div>
                         </div>
@@ -153,7 +164,7 @@
                                     accept=" image/jpeg, image/png, text/html, application/zip, text/css, text/js"
                                     data-height="200" />
                                 {{-- <img id="categoryImage" /> --}}
-                                <img id="categoryImage" src="{{ asset($product->image) }}" width="100" height="100" />
+                                <img id="" src="{{ asset($product->image) }}" width="100" height="100" />
                             </div>
                         </div>
 
@@ -163,6 +174,10 @@
                                 <input type="file" name="other_images[]" class="form-control"
                                     accept=" image/jpeg, image/png, text/html, application/zip, text/css, text/js"
                                     multiple />
+                                @foreach ($product->productImages as $productImage)
+                                    <img id="" src="{{ asset($productImage->image) }}" width="100"
+                                        height="100" />
+                                @endforeach
                             </div>
                         </div>
 
@@ -171,7 +186,7 @@
                             <div class="col-md-9">
                                 <div class="input-group">
                                     <input type="number" id="" class="form-control" name="regular_price"
-                                    value="{{ $product->regular_price }}" placeholder="Regular Price">
+                                        value="{{ $product->regular_price }}" placeholder="Regular Price">
                                     <input type="number" id="" class="form-control" name="selling_price"
                                         value="{{ $product->selling_price }}" placeholder="Selling Price">
                                 </div>
@@ -181,21 +196,23 @@
                         <div class="row mb-4">
                             <label for="email" class="col-md-3 form-label">Stock Amount</label>
                             <div class="col-md-9">
-                                <input type="number" id="" class="form-control" value="{{ $product->stock_amount }}" name="stock_amount"
-                                    placeholder="Stock Amount">
+                                <input type="number" id="" class="form-control"
+                                    value="{{ $product->stock_amount }}" name="stock_amount" placeholder="Stock Amount">
                             </div>
                         </div>
 
                         <div class="row mb-4">
                             <label for="lastName" class="col-md-3 form-label">Publication Status</label>
                             <div class="col-md-9 pt-3">
-                                <label><input type="radio" value="1" name="status" {{ $product->status == 1 ? 'checked' : '' }}><span
+                                <label><input type="radio" value="1" name="status"
+                                        {{ $product->status == 1 ? 'checked' : '' }}><span
                                         class="text-13">Published</span></label>
-                                <label><input type="radio" value="0" name="status" {{ $product->status == 0 ? 'checked' : '' }}><span
+                                <label><input type="radio" value="0" name="status"
+                                        {{ $product->status == 0 ? 'checked' : '' }}><span
                                         class="text-13">Unpublished</span></label>
                             </div>
                         </div>
-                        <button class="btn btn-primary rounded-0 float-end" type="submit">Create New Product</button>
+                        <button class="btn btn-primary rounded-0 float-end" type="submit">Update Product Info</button>
                     </form>
                 </div>
             </div>
