@@ -20,8 +20,11 @@ class EvaraController extends Controller
         return view('website.category.index');
     }
 
-    public function productDetail()
+    public function productDetail($id)
     {
-        return view('website.product.index');
+        $product = Product::findOrFail($id);
+        return view('website.product.index', [
+            'product' => $product
+        ]);
     }
 }

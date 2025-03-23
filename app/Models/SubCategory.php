@@ -14,7 +14,7 @@ class SubCategory extends Model
     private static function getImageUrl($request){
         self::$image                = $request->file('image');
         self::$imageName            = self::$image->getClientOriginalName();
-        self::$directory            = "/uploads/sub-category-images";
+        self::$directory            = "uploads/sub-category/";
         self::$image->move(self::$directory,self::$imageName);
         self::$imageUrl             = self::$directory.self::$imageName;
         return self::$imageUrl;
@@ -43,8 +43,6 @@ class SubCategory extends Model
         } else {
             self::$imageUrl = $subCategory->image;
         }
-
-        self::$imageUrl = $request->file('image') ?  self::getImageUrl($request) : '';
 
         self::saveBasicInfo($subCategory, $request, self::$imageUrl);
     }

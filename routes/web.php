@@ -24,7 +24,7 @@ use App\Http\Controllers\ProductController;
 
 Route::get('/', [EvaraController::class, 'index'])->name('home');
 Route::get('/product-category', [EvaraController::class, 'category'])->name('product-category');
-Route::get('/product-detail/{slug}', [EvaraController::class, 'productDetail'])->name('product-detail');
+Route::get('/product-detail/{id}', [EvaraController::class, 'productDetail'])->name('product-detail');
 
 
 Route::middleware([ 'auth:sanctum',  config('jetstream.auth_session'),  'verified',])->group(function () {

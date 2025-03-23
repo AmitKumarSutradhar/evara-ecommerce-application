@@ -12,7 +12,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('admin.category.index');
+        return view('admin.category.index',[
+            'categories' => Category::all(),
+        ]);
     }
 
     /**
@@ -45,7 +47,9 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('admin.category.edit', [
+            'category' => $category,
+        ]);
     }
 
     /**
@@ -53,7 +57,8 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        Category::updateCategoryInfo($request, $category);
+        return back()->with('message', 'Category info updated successfully.');
     }
 
     /**

@@ -169,17 +169,17 @@
                                     </div>
                                     <div class="product-content-wrap">
                                         <div class="product-category">
-                                            <a href="shop-grid-right.html">Clothing</a>
+                                            <a href="shop-grid-right.html">{{ $item->category->name }}</a>
                                         </div>
-                                        <h2><a href="shop-product-right.html">Colorful Pattern Shirts</a></h2>
+                                        <h2><a href="shop-product-right.html">{{ $item->name }}</a></h2>
                                         <div class="rating-result" title="90%">
                                                 <span>
                                                     <span>90%</span>
                                                 </span>
                                         </div>
                                         <div class="product-price">
-                                            <span>$238.85 </span>
-                                            <span class="old-price">$245.8</span>
+                                            <span>Tk. {{ $item->selling_price }} </span>
+                                            <span class="old-price">Tk. {{ $item->regular_price }}</span>
                                         </div>
                                         <div class="product-action-1 show">
                                             <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i

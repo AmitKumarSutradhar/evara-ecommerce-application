@@ -6,8 +6,8 @@
         <div class="container">
             <div class="breadcrumb">
                 <a href="index-2.html" rel="nofollow">Home</a>
-                <span></span> Fashion
-                <span></span> Abstract Print Patchwork Dress
+                <span></span> {{ $product->category->name }}
+                <span></span> {{ $product->name }}
             </div>
         </div>
     </div>
@@ -73,7 +73,7 @@
                             </div>
                             <div class="col-md-6 col-sm-12 col-xs-12">
                                 <div class="detail-info">
-                                    <h2 class="title-detail">Colorful Pattern Shirts HD450</h2>
+                                    <h2 class="title-detail">{{ $product->name }}</h2>
                                     <div class="product-detail-rating">
                                         <div class="pro-details-brand">
                                             <span> Brands: <a href="shop-grid-right.html">Bootstrap</a></span>
@@ -88,8 +88,8 @@
                                     </div>
                                     <div class="clearfix product-price-cover">
                                         <div class="product-price primary-color float-left">
-                                            <ins><span class="text-brand">$120.00</span></ins>
-                                            <ins><span class="old-price font-md ml-15">$200.00</span></ins>
+                                            <ins><span class="text-brand">Tk {{ $product->selling_price }}</span></ins>
+                                            <ins><span class="old-price font-md ml-15">Tk {{ $product->regular_price }}</span></ins>
                                             <span class="save-price  font-md color3 ml-15">25% Off</span>
                                         </div>
                                     </div>
