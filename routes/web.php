@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\UnitController;
 use App\Http\Controllers\ColorController;
 use App\Http\Controllers\SizeController;
@@ -25,6 +26,8 @@ use App\Http\Controllers\ProductController;
 Route::get('/', [EvaraController::class, 'index'])->name('home');
 Route::get('/product-category', [EvaraController::class, 'category'])->name('product-category');
 Route::get('/product-detail/{id}', [EvaraController::class, 'productDetail'])->name('product-detail');
+
+Route::resources(['carts'=> CartController::class]);
 
 
 Route::middleware([ 'auth:sanctum',  config('jetstream.auth_session'),  'verified',])->group(function () {
