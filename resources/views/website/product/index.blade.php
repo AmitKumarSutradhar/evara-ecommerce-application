@@ -15,8 +15,6 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-
-
                     <div class="product-detail accordion-detail">
                         <div class="row mb-50">
                             <div class="col-md-6 col-sm-12 col-xs-12">
@@ -115,55 +113,69 @@
                                         </div>
                                         <div class="attr-detail attr-color mb-15">
                                             <strong class="mr-10">Color</strong>
-                                            <ul class="list-filter color-filter">
-                                                {{-- <li><a href="#" data-color="Red"><span class="product-color-red"></span></a>
-                                            </li>
-                                            <li><a href="#" data-color="Yellow"><span
-                                                        class="product-color-yellow"></span></a></li>
-                                            <li class="active"><a href="#" data-color="White"><span
-                                                        class="product-color-white"></span></a></li>
-                                            <li><a href="#" data-color="Orange"><span
-                                                        class="product-color-orange"></span></a></li>
-                                            <li><a href="#" data-color="Cyan"><span
-                                                        class="product-color-cyan"></span></a></li>
-                                            <li><a href="#" data-color="Green"><span class="product-color-green"></span></a>
-                                            </li>
-                                            <li><a href="#" data-color="Purple"><span
-                                                        class="product-color-purple"></span></a></li> --}}
+                                            {{-- <ul class="list-filter color-filter">
+                                                <li><a href="#" data-color="Red"><span
+                                                            class="product-color-red"></span></a>
+                                                </li>
+                                                <li><a href="#" data-color="Yellow"><span
+                                                            class="product-color-yellow"></span></a></li>
+                                                <li class="active"><a href="#" data-color="White"><span
+                                                            class="product-color-white"></span></a></li>
+                                            </ul> --}}
+                                            <div class="d-flex">
                                                 @foreach ($product->colors as $singleColor)
-                                                    <li>
-                                                        <a href="#" data-color="Red">
-                                                            <span
-                                                                style="background-color: {{ $singleColor->color->code }}; border: 1px solid #046963;"></span>
-                                                        </a>
-                                                    </li>
+                                                    <div class="custome-radio">
+                                                        <input class="form-check-input" required="" type="radio"
+                                                            name="color" id="product-color-{{ $singleColor->color->code }}"
+                                                            value="{{ $singleColor->color->code }}">
+                                                        <label class="form-check-label mx-3"
+                                                            for="product-color-{{ $singleColor->color->code }}"
+                                                            data-bs-toggle="collapse" data-target="#bankTranfer"
+                                                            aria-controls="bankTranfer">{{ $singleColor->color->name  }}</label>
+                                                        {{-- <div class="form-group collapse in" id="bankTranfer">
+                                                            <p class="text-muted mt-5">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration. </p>
+                                                        </div> --}}
+                                                    </div>
                                                 @endforeach
-                                            </ul>
+                                            </div>
                                         </div>
                                         <div class="attr-detail attr-size">
                                             <strong class="mr-10">Size</strong>
-                                            <ul class="list-filter size-filter font-small">
-                                                {{-- <li><a href="#">S</a></li>
-                                            <li class="active"><a href="#">M</a></li>
-                                            <li><a href="#">L</a></li>
-                                            <li><a href="#">XL</a></li>
-                                            <li><a href="#">XXL</a></li> --}}
+                                            {{-- <ul class="list-filter size-filter font-small">
+                                                <li><a href="#">S</a></li>
+                                                <li class="active"><a href="#">M</a></li>
+                                            </ul> --}}
+                                            <div class="d-flex">
                                                 @foreach ($product->sizes as $singleSize)
-                                                    <li><a href="#">{{ $singleSize->size->code }}</a></li>
+                                                    <div class="custome-radio">
+                                                        <input class="form-check-input" required="" type="radio"
+                                                            name="size" id="size-{{ $singleSize->size->code }}"
+                                                            value="{{ $singleSize->size->code }}">
+                                                        <label class="form-check-label mx-3"
+                                                            for="size-{{ $singleSize->size->code }}"
+                                                            data-bs-toggle="collapse" data-target="#bankTranfer"
+                                                            aria-controls="bankTranfer">{{ $singleSize->size->code }}</label>
+                                                        {{-- <div class="form-group collapse in" id="bankTranfer">
+                                                            <p class="text-muted mt-5">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration. </p>
+                                                        </div> --}}
+                                                    </div>
                                                 @endforeach
-                                            </ul>
+                                            </div>
                                         </div>
                                         <div class="bt-1 border-color-1 mt-30 mb-30"></div>
                                         <div class="detail-extralink">
-                                            <div class="detail-qty border radius">
+                                            {{-- <div class="detail-qty border radius">
                                                 <a href="#" class="qty-down">
                                                     <i class="fi-rs-angle-small-down"></i>
                                                 </a>
                                                 <span class="qty-val">1</span>
+
                                                 <a href="#" class="qty-up">
                                                     <i class="fi-rs-angle-small-up"></i>
                                                 </a>
-                                            </div>
+                                            </div> --}}
+                                            <input type="number" name="qty" id="" class="mb-3" min="1" value="1">
+
                                             <div class="product-extra-link2">
                                                 <button type="submit" class="button button-add-to-cart">Add to
                                                     cart</button>
@@ -179,8 +191,10 @@
                                                     href="#" rel="tag">Women</a>,
                                                 <a href="#" rel="tag">Dress</a>
                                             </li>
-                                            <li>Availability:<span class="in-stock text-success ml-5">8 Items In
-                                                    Stock</span>
+                                            <li>Availability:
+                                                <span class="in-stock text-success ml-5">
+                                                    {{ $product->stock_amount }} Items In Stock
+                                                </span>
                                             </li>
                                         </ul>
                                     </div>
@@ -519,189 +533,53 @@
                             </div>
                             <div class="col-12">
                                 <div class="row related-products">
-                                    <div class="col-lg-3 col-md-4 col-12 col-sm-6">
-                                        <div class="product-cart-wrap small hover-up">
-                                            <div class="product-img-action-wrap">
-                                                <div class="product-img product-img-zoom">
-                                                    <a href="shop-product-right.html" tabindex="0">
-                                                        <img class="default-img"
-                                                            src="{{ asset('/') }}website/assets/imgs/shop/product-2-1.jpg"
-                                                            alt="">
-                                                        <img class="hover-img"
-                                                            src="{{ asset('/') }}website/assets/imgs/shop/product-2-2.jpg"
-                                                            alt="">
-                                                    </a>
+                                    @foreach ($realated_product as $item)
+                                        <div class="col-lg-3 col-md-4 col-12 col-sm-6">
+                                            <div class="product-cart-wrap small hover-up">
+                                                <div class="product-img-action-wrap">
+                                                    <div class="product-img product-img-zoom">
+                                                        <a href="shop-product-right.html" tabindex="0">
+                                                            <img class="default-img"
+                                                                src="{{ asset('/') }}website/assets/imgs/shop/product-2-1.jpg"
+                                                                alt="">
+                                                            <img class="hover-img"
+                                                                src="{{ asset('/') }}website/assets/imgs/shop/product-2-2.jpg"
+                                                                alt="">
+                                                        </a>
+                                                    </div>
+                                                    <div class="product-action-1">
+                                                        <a aria-label="Quick view" class="action-btn small hover-up"
+                                                            data-bs-toggle="modal" data-bs-target="#quickViewModal">
+                                                            <i class="fi-rs-search"></i>
+                                                        </a>
+                                                        <a aria-label="Add To Wishlist" class="action-btn small hover-up"
+                                                            href="shop-wishlist.html" tabindex="0">
+                                                            <i class="fi-rs-heart"></i>
+                                                        </a>
+                                                        <a aria-label="Compare" class="action-btn small hover-up"
+                                                            href="shop-compare.html" tabindex="0">
+                                                            <i class="fi-rs-shuffle"></i>
+                                                        </a>
+                                                    </div>
+                                                    <div class="product-badges product-badges-position product-badges-mrg">
+                                                        <span class="hot">Hot</span>
+                                                    </div>
                                                 </div>
-                                                <div class="product-action-1">
-                                                    <a aria-label="Quick view" class="action-btn small hover-up"
-                                                        data-bs-toggle="modal" data-bs-target="#quickViewModal">
-                                                        <i class="fi-rs-search"></i>
-                                                    </a>
-                                                    <a aria-label="Add To Wishlist" class="action-btn small hover-up"
-                                                        href="shop-wishlist.html" tabindex="0">
-                                                        <i class="fi-rs-heart"></i>
-                                                    </a>
-                                                    <a aria-label="Compare" class="action-btn small hover-up"
-                                                        href="shop-compare.html" tabindex="0">
-                                                        <i class="fi-rs-shuffle"></i>
-                                                    </a>
-                                                </div>
-                                                <div class="product-badges product-badges-position product-badges-mrg">
-                                                    <span class="hot">Hot</span>
-                                                </div>
-                                            </div>
-                                            <div class="product-content-wrap">
-                                                <h2><a href="shop-product-right.html" tabindex="0">Ulstra Bass
-                                                        Headphone</a></h2>
-                                                <div class="rating-result" title="90%">
-                                                    <span>
-                                                    </span>
-                                                </div>
-                                                <div class="product-price">
-                                                    <span>$238.85 </span>
-                                                    <span class="old-price">$245.8</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-4 col-12 col-sm-6">
-                                        <div class="product-cart-wrap small hover-up">
-                                            <div class="product-img-action-wrap">
-                                                <div class="product-img product-img-zoom">
-                                                    <a href="shop-product-right.html" tabindex="0">
-                                                        <img class="default-img"
-                                                            src="{{ asset('/') }}website/assets/imgs/shop/product-3-1.jpg"
-                                                            alt="">
-                                                        <img class="hover-img"
-                                                            src="{{ asset('/') }}website/assets/imgs/shop/product-4-2.jpg"
-                                                            alt="">
-                                                    </a>
-                                                </div>
-                                                <div class="product-action-1">
-                                                    <a aria-label="Quick view" class="action-btn small hover-up"
-                                                        data-bs-toggle="modal" data-bs-target="#quickViewModal">
-                                                        <i class="fi-rs-search"></i>
-                                                    </a>
-                                                    <a aria-label="Add To Wishlist" class="action-btn small hover-up"
-                                                        href="shop-wishlist.html" tabindex="0">
-                                                        <i class="fi-rs-heart"></i>
-                                                    </a>
-                                                    <a aria-label="Compare" class="action-btn small hover-up"
-                                                        href="shop-compare.html" tabindex="0">
-                                                        <i class="fi-rs-shuffle"></i>
-                                                    </a>
-                                                </div>
-                                                <div class="product-badges product-badges-position product-badges-mrg">
-                                                    <span class="sale">-12%</span>
-                                                </div>
-                                            </div>
-                                            <div class="product-content-wrap">
-                                                <h2>
-                                                    <a href="shop-product-right.html" tabindex="0">Smart Bluetooth
-                                                        Speaker</a>
-                                                </h2>
-                                                <div class="rating-result" title="90%">
-                                                    <span>
-                                                    </span>
-                                                </div>
-                                                <div class="product-price">
-                                                    <span>$138.85 </span>
-                                                    <span class="old-price">$145.8</span>
+                                                <div class="product-content-wrap">
+                                                    <h2><a href="shop-product-right.html" tabindex="0">Ulstra Bass
+                                                            Headphone</a></h2>
+                                                    <div class="rating-result" title="90%">
+                                                        <span>
+                                                        </span>
+                                                    </div>
+                                                    <div class="product-price">
+                                                        <span>$238.85 </span>
+                                                        <span class="old-price">$245.8</span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-4 col-12 col-sm-6">
-                                        <div class="product-cart-wrap small hover-up">
-                                            <div class="product-img-action-wrap">
-                                                <div class="product-img product-img-zoom">
-                                                    <a href="shop-product-right.html" tabindex="0">
-                                                        <img class="default-img"
-                                                            src="{{ asset('/') }}website/assets/imgs/shop/product-4-1.jpg"
-                                                            alt="">
-                                                        <img class="hover-img"
-                                                            src="{{ asset('/') }}website/assets/imgs/shop/product-4-2.jpg"
-                                                            alt="">
-                                                    </a>
-                                                </div>
-                                                <div class="product-action-1">
-                                                    <a aria-label="Quick view" class="action-btn small hover-up"
-                                                        data-bs-toggle="modal" data-bs-target="#quickViewModal">
-                                                        <i class="fi-rs-search"></i>
-                                                    </a>
-                                                    <a aria-label="Add To Wishlist" class="action-btn small hover-up"
-                                                        href="shop-wishlist.html" tabindex="0">
-                                                        <i class="fi-rs-heart"></i>
-                                                    </a>
-                                                    <a aria-label="Compare" class="action-btn small hover-up"
-                                                        href="shop-compare.html" tabindex="0">
-                                                        <i class="fi-rs-shuffle"></i></a>
-                                                </div>
-                                                <div class="product-badges product-badges-position product-badges-mrg">
-                                                    <span class="new">New</span>
-                                                </div>
-                                            </div>
-                                            <div class="product-content-wrap">
-                                                <h2>
-                                                    <a href="shop-product-right.html" tabindex="0">HomeSpeak 12UEA
-                                                        Goole</a>
-                                                </h2>
-                                                <div class="rating-result" title="90%">
-                                                    <span>
-                                                    </span>
-                                                </div>
-                                                <div class="product-price">
-                                                    <span>$738.85 </span>
-                                                    <span class="old-price">$1245.8</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-4 col-12 col-sm-6">
-                                        <div class="product-cart-wrap small hover-up mb-0">
-                                            <div class="product-img-action-wrap">
-                                                <div class="product-img product-img-zoom">
-                                                    <a href="shop-product-right.html" tabindex="0">
-                                                        <img class="default-img"
-                                                            src="{{ asset('/') }}website/assets/imgs/shop/product-5-1.jpg"
-                                                            alt="">
-                                                        <img class="hover-img"
-                                                            src="{{ asset('/') }}website/assets/imgs/shop/product-3-2.jpg"
-                                                            alt="">
-                                                    </a>
-                                                </div>
-                                                <div class="product-action-1">
-                                                    <a aria-label="Quick view" class="action-btn small hover-up"
-                                                        data-bs-toggle="modal" data-bs-target="#quickViewModal">
-                                                        <i class="fi-rs-search"></i>
-                                                    </a>
-                                                    <a aria-label="Add To Wishlist" class="action-btn small hover-up"
-                                                        href="shop-wishlist.html" tabindex="0">
-                                                        <i class="fi-rs-heart"></i>
-                                                    </a>
-                                                    <a aria-label="Compare" class="action-btn small hover-up"
-                                                        href="shop-compare.html" tabindex="0">
-                                                        <i class="fi-rs-shuffle"></i>
-                                                    </a>
-                                                </div>
-                                                <div class="product-badges product-badges-position product-badges-mrg">
-                                                    <span class="hot">Hot</span>
-                                                </div>
-                                            </div>
-                                            <div class="product-content-wrap">
-                                                <h2><a href="shop-product-right.html" tabindex="0">Dadua Camera 4K
-                                                        2022EF</a></h2>
-                                                <div class="rating-result" title="90%">
-                                                    <span>
-                                                    </span>
-                                                </div>
-                                                <div class="product-price">
-                                                    <span>$89.8 </span>
-                                                    <span class="old-price">$98.8</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>

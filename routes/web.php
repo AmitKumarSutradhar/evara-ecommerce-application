@@ -27,6 +27,8 @@ Route::get('/', [EvaraController::class, 'index'])->name('home');
 Route::get('/product-category', [EvaraController::class, 'category'])->name('product-category');
 Route::get('/product-detail/{id}', [EvaraController::class, 'productDetail'])->name('product-detail');
 
+
+Route::get('/delete-carts', [CartController::class, 'deleteAll'])->name('delete-carts');
 Route::resources(['carts'=> CartController::class]);
 
 

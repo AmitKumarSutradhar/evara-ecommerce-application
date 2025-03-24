@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 
 class EvaraController extends Controller
 {
+    private $product;
+
     public function index()
     {
         return view('website.home.index', [
@@ -22,9 +24,10 @@ class EvaraController extends Controller
 
     public function productDetail($id)
     {
-        $product = Product::findOrFail($id);
+        $this->product = Product::findOrFail($id);
         return view('website.product.index', [
-            'product' => $product
+            'product'               => $this->product,
+            'realated_product'      => Product::where('category_id', $this->product->category_id)->latest(),
         ]);
     }
 }
