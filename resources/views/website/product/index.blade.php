@@ -72,7 +72,7 @@
                                 <!-- End Gallery -->
                             </div>
                             <div class="col-md-6 col-sm-12 col-xs-12">
-                                <form action="{{ route('carts.store') }}" method="POST">
+                                <form action="{{ route('cart.store') }}" method="POST">
                                     @csrf
                                     <input type="hidden" name="id" value="{{ $product->id }}">
                                     <div class="detail-info">
@@ -123,15 +123,17 @@
                                                             class="product-color-white"></span></a></li>
                                             </ul> --}}
                                             <div class="d-flex">
-                                                @foreach ($product->colors as $singleColor)
+                                                @foreach ($product->colors as $colorKey => $singleColor)
                                                     <div class="custome-radio">
                                                         <input class="form-check-input" required="" type="radio"
-                                                            name="color" id="product-color-{{ $singleColor->color->code }}"
-                                                            value="{{ $singleColor->color->code }}">
+                                                            name="color"
+                                                            id="product-color-{{ $singleColor->color->code }}"
+                                                            value="{{ $singleColor->color->code }}"
+                                                            {{ $colorKey == 0 ? 'checked' : '' }}>
                                                         <label class="form-check-label mx-3"
                                                             for="product-color-{{ $singleColor->color->code }}"
                                                             data-bs-toggle="collapse" data-target="#bankTranfer"
-                                                            aria-controls="bankTranfer">{{ $singleColor->color->name  }}</label>
+                                                            aria-controls="bankTranfer">{{ $singleColor->color->name }}</label>
                                                         {{-- <div class="form-group collapse in" id="bankTranfer">
                                                             <p class="text-muted mt-5">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration. </p>
                                                         </div> --}}
@@ -146,11 +148,12 @@
                                                 <li class="active"><a href="#">M</a></li>
                                             </ul> --}}
                                             <div class="d-flex">
-                                                @foreach ($product->sizes as $singleSize)
+                                                @foreach ($product->sizes as $sizeKey => $singleSize)
                                                     <div class="custome-radio">
                                                         <input class="form-check-input" required="" type="radio"
                                                             name="size" id="size-{{ $singleSize->size->code }}"
-                                                            value="{{ $singleSize->size->code }}">
+                                                            value="{{ $singleSize->size->code }}"
+                                                            {{ $sizeKey == 0 ? 'checked' : '' }}>
                                                         <label class="form-check-label mx-3"
                                                             for="size-{{ $singleSize->size->code }}"
                                                             data-bs-toggle="collapse" data-target="#bankTranfer"
@@ -174,7 +177,8 @@
                                                     <i class="fi-rs-angle-small-up"></i>
                                                 </a>
                                             </div> --}}
-                                            <input type="number" name="qty" id="" class="mb-3" min="1" value="1">
+                                            <input type="number" name="qty" id="" class="mb-3"
+                                                min="1" value="1">
 
                                             <div class="product-extra-link2">
                                                 <button type="submit" class="button button-add-to-cart">Add to

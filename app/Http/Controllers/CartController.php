@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use Cart;
+use Gloudemans\Shoppingcart\Facades\Cart;
+// use Cart;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -14,7 +15,7 @@ class CartController extends Controller
      */
     public function index()
     {
-        return Cart::content();
+        // return Cart::content();
         return view('website.cart.index', [
             'products' => Cart::content(),
         ]);
@@ -33,7 +34,7 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-       self::$product =     Product::findOrFail($request->id);
+        self::$product =     Product::findOrFail($request->id);
 
         Cart::add([
             'id'            => $request->id,
@@ -49,8 +50,7 @@ class CartController extends Controller
             ]
         ]);
 
-        return redirect()->route('carts.index')->with('message', 'Item added to cart successfully.');
-
+        return redirect()->route('cart.index')->with('message', 'Item added to cart successfully.');
     }
 
     /**
@@ -82,11 +82,7 @@ class CartController extends Controller
      */
     public function destroy(string $id)
     {
-
-    }
-
-    public function deleteAll(string $id)
-    {
-        return Cart::destroy();
+        Cart::remove($id);
+        return back()->with('message', 'Item remove from cart successfully.');
     }
 }

@@ -16,6 +16,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="table-responsive">
+                        <p class="text-center">{{ session('message') }}</p>
                         <table class="table shopping-summery text-center clean">
                             <thead>
                                 <tr class="main-heading">
@@ -30,11 +31,12 @@
                             <tbody>
                                 @foreach ($products as $item)
                                     <tr>
-                                        <td class="image product-thumbnail"><img src="{{  asset($item->image) }}"
+                                        <td class="image product-thumbnail"><img src="{{ asset($item->image) }}"
                                                 alt="#"></td>
                                         <td class="product-des product-name">
                                             <h5 class="product-name">
-                                                <a href="shop-product-right.html">{{ $item->name }}</a>
+                                                <a href="{{ route('product-detail', $item->id) }}"
+                                                    target="_blank">{{ $item->name }}</a>
                                             </h5>
                                             <p class="font-xs">Maboriosam in a tonto nesciung eget<br> distingy magndapibus.
                                             </p>
@@ -44,15 +46,23 @@
                                             <div class="detail-qty border radius  m-auto">
                                                 <a href="#" class="qty-down"><i
                                                         class="fi-rs-angle-small-down"></i></a>
-                                                <span class="qty-val">1</span>
+                                                <span class="qty-val">{{ $item->qty }}</span>
                                                 <a href="#" class="qty-up"><i class="fi-rs-angle-small-up"></i></a>
                                             </div>
                                         </td>
                                         <td class="text-right" data-title="Cart">
-                                            <span>$65.00 </span>
+                                            <span>Tk {{ $item->subtotal }} </span>
                                         </td>
-                                        <td class="action" data-title="Remove"><a href="#" class="text-muted"><i
-                                                    class="fi-rs-trash"></i></a></td>
+                                        {{-- <td class="action" data-title="Remove"><a href="#" class="text-muted"><i
+                                                    class="fi-rs-trash"></i></a></td> --}}
+                                        <td class="action" data-title="Remove">
+                                            <form action="{{ route('cart.destroy', $item->rowId) }}" method="POST">
+                                                @method('DELETE')
+                                                @csrf
+                                                <button type="submit" class="btn-sm" onclick="return confirm('Are you sure to delete this...')" ><i class="fi-rs-trash"></i></button>
+                                            </form>
+                                        </td>
+
                                     </tr>
                                 @endforeach
                                 <tr>
@@ -380,7 +390,12 @@
                                             <tr>
                                                 <td class="cart_total_label">Cart Subtotal</td>
                                                 <td class="cart_total_amount"><span
-                                                        class="font-lg fw-900 text-brand">$240.00</span></td>
+                                                        class="font-lg fw-900 text-brand">{{ Cart::subtotal() }}</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="cart_total_label">Tax</td>
+                                                <td class="cart_total_amount"><span
+                                                        class="font-lg fw-900 text-brand">{{ Cart::tax(); }}</span></td>
                                             </tr>
                                             <tr>
                                                 <td class="cart_total_label">Shipping</td>
@@ -390,7 +405,7 @@
                                             <tr>
                                                 <td class="cart_total_label">Total</td>
                                                 <td class="cart_total_amount"><strong><span
-                                                            class="font-xl fw-900 text-brand">$240.00</span></strong></td>
+                                                            class="font-xl fw-900 text-brand">{{ Cart::total() }}</span></strong></td>
                                             </tr>
                                         </tbody>
                                     </table>

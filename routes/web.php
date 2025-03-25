@@ -28,8 +28,7 @@ Route::get('/product-category', [EvaraController::class, 'category'])->name('pro
 Route::get('/product-detail/{id}', [EvaraController::class, 'productDetail'])->name('product-detail');
 
 
-Route::get('/delete-carts', [CartController::class, 'deleteAll'])->name('delete-carts');
-Route::resources(['carts'=> CartController::class]);
+Route::resources(['cart'=> CartController::class]);
 
 
 Route::middleware([ 'auth:sanctum',  config('jetstream.auth_session'),  'verified',])->group(function () {
