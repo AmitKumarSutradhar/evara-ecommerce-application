@@ -296,7 +296,7 @@
                                 </a>
                             </div>
                             <div class="header-action-icon-2">
-                                <a class="mini-cart-icon" href="shop-cart.html">
+                                <a class="mini-cart-icon" href="{{ route('cart.index') }}">
                                     <img alt="Evara"
                                         src="{{ asset('/') }}website/assets/imgs/theme/icons/icon-cart.svg">
                                     <span class="pro-count blue">{{ count(Cart::content()) }}</span>
@@ -311,7 +311,7 @@
                                                 </div>
                                                 <div class="shopping-cart-title">
                                                     <h4><a href="{{ route('product-detail', $cartItem->id) }}"> {{ Str::limit($cartItem->name, 15)  }}</a></h4>
-                                                    <h4><span>{{ $cartItem->qty }}1 × Tk </span>{{ $cartItem->price }}</h4>
+                                                    <h4><span>{{ $cartItem->qty }} × Tk </span>{{ $cartItem->price }}</h4>
                                                 </div>
                                                 <div class="shopping-cart-delete">
                                                     <a href="#"><i class="fi-rs-cross-small"></i></a>
@@ -321,11 +321,11 @@
                                     </ul>
                                     <div class="shopping-cart-footer">
                                         <div class="shopping-cart-total">
-                                            <h4>Total <span>$4000.00</span></h4>
+                                            <h4>Total <span>Tk {{ Cart::total() }}</span></h4>
                                         </div>
                                         <div class="shopping-cart-button">
                                             <a href="{{ route('cart.index') }}" class="outline">View cart</a>
-                                            <a href="shop-checkout.html">Checkout</a>
+                                            <a href="{{ route('checkout') }}">Checkout</a>
                                         </div>
                                     </div>
                                 </div>

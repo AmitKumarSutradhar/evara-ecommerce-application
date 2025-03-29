@@ -31,7 +31,8 @@ Route::get('/product-detail/{id}', [EvaraController::class, 'productDetail'])->n
 
 Route::resources(['cart'=> CartController::class]);
 
-Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
+Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
+Route::post('/new-order', [CheckoutController::class, 'newOrder'])->name('new-order');
 
 
 Route::middleware([ 'auth:sanctum',  config('jetstream.auth_session'),  'verified',])->group(function () {
