@@ -43,7 +43,7 @@
                                         @foreach($sub_categories as $sub_category)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $sub_category->category->name }}</td>
+                                                <td>{{ isset($sub_category->category->name) ? $sub_category->category->name  : "" }}</td>
                                                 <td>{{ $sub_category->name  }}</td>
                                                 <td>
                                                     <img src="{{ $sub_category->image }}" style="width: 06px; height: 40px;" alt="">

@@ -43,7 +43,7 @@
                         <div class="row mb-4">
                             <label for="lastName" class="col-md-3 form-label">Size Description</label>
                             <div class="col-md-9">
-                                <textarea class="form-control" name="description" id="">value={{ $size->description }}</textarea>
+                                <textarea class="form-control" name="description" id="">{{ $size->description }}</textarea>
                             </div>
                         </div>
                         <div class="row mb-4">

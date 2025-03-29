@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\UnitController;
 use App\Http\Controllers\ColorController;
@@ -25,7 +26,10 @@ use App\Http\Controllers\ProductController;
 
 Route::get('/', [EvaraController::class, 'index'])->name('home');
 Route::get('/product-category', [EvaraController::class, 'category'])->name('product-category');
-Route::get('/product-detail', [EvaraController::class, 'product'])->name('product-detail');
+Route::get('/product-detail/{id}', [EvaraController::class, 'productDetail'])->name('product-detail');
+
+
+Route::resources(['cart'=> CartController::class]);
 
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
 
@@ -40,5 +44,6 @@ Route::middleware([ 'auth:sanctum',  config('jetstream.auth_session'),  'verifie
     Route::resource('color', ColorController::class);
     Route::resource('size', SizeController::class);
     Route::resource('product', ProductController::class);
+    Route::get('get-sub-category-by-category', [ProductController::class, 'getSubcategoryByCategory'])->name('get-sub-category-by-category');
 
 });

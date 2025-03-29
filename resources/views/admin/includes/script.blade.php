@@ -17,7 +17,7 @@
 <script src="{{ asset('/') }}admin/assets/js/sticky.js"></script>
 
 
-<!-- APEXCHART JS -->
+<!-- APEX CHART JS -->
 <script src="{{ asset('/') }}admin/assets/js/apexcharts.js"></script>
 
 <!-- INTERNAL SELECT2 JS -->
@@ -66,6 +66,21 @@
 <!-- CUSTOM JS -->
 <script src="{{ asset('/') }}admin/assets/js/custom.js"></script>
 
+<!-- INTERNAL Summernote Editor js -->
+<script src="{{ asset('/') }}admin/assets/plugins/summernote-editor/summernote1.js"></script>
+<script src="{{ asset('/') }}admin/assets/js/summernote.js"></script>
+
+<!--Internal Fileuploads js-->
+<script src="{{ asset('/') }}admin/assets/plugins/fileuploads/js/fileupload.js"></script>
+<script src="{{ asset('/') }}admin/assets/plugins/fileuploads/js/file-upload.js"></script>
+
+<!--Internal Fancy uploader js-->
+<script src="{{ asset('/') }}admin/assets/plugins/fancyuploder/jquery.ui.widget.js"></script>
+<script src="{{ asset('/') }}admin/assets/plugins/fancyuploder/jquery.fileupload.js"></script>
+<script src="{{ asset('/') }}admin/assets/plugins/fancyuploder/jquery.iframe-transport.js"></script>
+<script src="{{ asset('/') }}admin/assets/plugins/fancyuploder/jquery.fancy-fileupload.js"></script>
+<script src="{{ asset('/') }}admin/assets/plugins/fancyuploder/fancy-uploader.js"></script>
+
 <!-- SWITCHER JS -->
 <script src="{{ asset('/') }}admin/assets/switcher/js/switcher.js"></script>
 
@@ -88,4 +103,26 @@
     $("#imgInp").change(function(){
         readURL(this);
     });
+</script>
+
+<script>
+    function selectSubCategory(categoryId){
+        $.ajax({
+            type: "GET",
+            url: "{{  route('get-sub-category-by-category')  }}",
+            data: {id: categoryId},
+            dataType: "JSON",
+            success: function (response){
+                // console.log(response);
+                var option = '';
+                option += '<option value="" disabled selected>-- Select Sub Category --</option>';
+                $.each(response, function (key, value) {
+                    option +=  '<option value=" ' + value.id +  '"> ' + value.name + '</option>';
+                });
+
+                $('#sub-category').empty();
+                $('#sub-category').append(option);
+            }
+        });
+    }
 </script>
