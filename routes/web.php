@@ -10,6 +10,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\UnitController;
 use App\Http\Controllers\ColorController;
+use App\Http\Controllers\CustomerAuthController;
 use App\Http\Controllers\SizeController;
 use App\Http\Controllers\ProductController;
 
@@ -31,9 +32,18 @@ Route::get('/product-detail/{id}', [EvaraController::class, 'productDetail'])->n
 
 Route::resources(['cart'=> CartController::class]);
 
+// Checkout 
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
 Route::post('/new-order', [CheckoutController::class, 'newOrder'])->name('new-order');
 Route::get('/complete-order', [CheckoutController::class, 'completeOrder'])->name('complete-order');
+
+// Customer 
+Route::get('/login-register', [CustomerAuthController::class, 'login'])->name('login-register');
+Route::post('/login-check', [CustomerAuthController::class, 'loginCheck'])->name('login-check');
+Route::get('/new-customer', [CustomerAuthController::class, 'newCustomer'])->name('new-customer');
+Route::get('/customer-logout', [CustomerAuthController::class, 'logout'])->name('customer-logout');
+
+Route::get('/my-dashboard', [CustomerAuthController::class, 'dashboard'])->name('customer.dashboard');
 
 
 Route::middleware([ 'auth:sanctum',  config('jetstream.auth_session'),  'verified',])->group(function () {

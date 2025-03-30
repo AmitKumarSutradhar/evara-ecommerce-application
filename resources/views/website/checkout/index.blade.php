@@ -22,18 +22,19 @@
                         </div>
                         <div>
                             <div class="form-group">
-                                <input type="text" required="" name="name" placeholder="Full name *">
+                                <input type="text" required="" name="name" value="{{ $customer->name ? $customer->name : ''  }}" placeholder="Full name *">
                             </div>
                             <div class="form-group">
-                                <input required="" type="email" name="email" placeholder="Email address *">
+                                <input required="" type="email" name="email" value="{{ $customer->email ? $customer->email : ''  }}" {{ $customer->email ? 'readonly' : ''  }}  placeholder="Email address *" required="">
                             </div>
                             <div class="form-group">
-                                <input type="number" name="mobile" required="" placeholder="Mobile Number *">
+                                <input type="number" name="mobile" value="{{ $customer->mobile ? $customer->mobile : ''  }}" required="" placeholder="Mobile Number *">
                             </div>
                             <div class="form-group">
-                                <textarea name="delivery_address" id="" placeholder="Delivery Address"></textarea>
+                                <textarea name="delivery_address" id="" placeholder="Delivery Address">{{ $customer->address ? $customer->address : ''  }}</textarea>
                                 {{-- <input type="text" name="" required=""> --}}
                             </div>
+                            @if (!$customer)
                             <div class="form-group">
                                 <div class="checkbox">
                                     <div class="custome-checkbox">
@@ -44,7 +45,8 @@
                                                 account?</span></label>
                                     </div>
                                 </div>
-                            </div>
+                            </div>    
+                            @endif
                             <div id="collapsePassword" class="form-group create-account collapse in">
                                 <input type="password" placeholder="Password" name="password">
                             </div>

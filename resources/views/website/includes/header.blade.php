@@ -1,5 +1,6 @@
 <!-- Modal -->
-<div class="modal fade custom-modal" id="onloadModal" tabindex="-1" aria-labelledby="onloadModalLabel" aria-hidden="true">
+<div class="modal fade custom-modal" id="onloadModal" tabindex="-1" aria-labelledby="onloadModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -147,23 +148,17 @@
                             <div class="attr-detail attr-color mb-15">
                                 <strong class="mr-10">Color</strong>
                                 <ul class="list-filter color-filter">
-                                    <li><a href="#" data-color="Red"><span
-                                                class="product-color-red"></span></a></li>
-                                    <li><a href="#" data-color="Yellow"><span
-                                                class="product-color-yellow"></span></a>
+                                    <li><a href="#" data-color="Red"><span class="product-color-red"></span></a></li>
+                                    <li><a href="#" data-color="Yellow"><span class="product-color-yellow"></span></a>
                                     </li>
                                     <li class="active"><a href="#" data-color="White"><span
                                                 class="product-color-white"></span></a></li>
-                                    <li><a href="#" data-color="Orange"><span
-                                                class="product-color-orange"></span></a>
+                                    <li><a href="#" data-color="Orange"><span class="product-color-orange"></span></a>
                                     </li>
-                                    <li><a href="#" data-color="Cyan"><span
-                                                class="product-color-cyan"></span></a></li>
-                                    <li><a href="#" data-color="Green"><span
-                                                class="product-color-green"></span></a>
+                                    <li><a href="#" data-color="Cyan"><span class="product-color-cyan"></span></a></li>
+                                    <li><a href="#" data-color="Green"><span class="product-color-green"></span></a>
                                     </li>
-                                    <li><a href="#" data-color="Purple"><span
-                                                class="product-color-purple"></span></a>
+                                    <li><a href="#" data-color="Purple"><span class="product-color-purple"></span></a>
                                     </li>
                                 </ul>
                             </div>
@@ -194,8 +189,7 @@
                             </div>
                             <ul class="product-meta font-xs color-grey mt-50">
                                 <li class="mb-5">SKU: <a href="#">FWM15VKT</a></li>
-                                <li class="mb-5">Tags: <a href="#" rel="tag">Cloth</a>, <a
-                                        href="#" rel="tag">Women</a>,
+                                <li class="mb-5">Tags: <a href="#" rel="tag">Cloth</a>, <a href="#" rel="tag">Women</a>,
                                     <a href="#" rel="tag">Dress</a>
                                 </li>
                                 <li>Availability:<span class="in-stock text-success ml-5">8 Items In Stock</span></li>
@@ -242,18 +236,27 @@
                                 <a class="language-dropdown-active" href="#"> <i class="fi-rs-world"></i>
                                     English <i class="fi-rs-angle-small-down"></i></a>
                                 <ul class="language-dropdown">
-                                    <li><a href="#"><img
-                                                src="{{ asset('/') }}website/assets/imgs/theme/flag-fr.png"
+                                    <li><a href="#"><img src="{{ asset('/') }}website/assets/imgs/theme/flag-fr.png"
                                                 alt="">Français</a></li>
-                                    <li><a href="#"><img
-                                                src="{{ asset('/') }}website/assets/imgs/theme/flag-dt.png"
+                                    <li><a href="#"><img src="{{ asset('/') }}website/assets/imgs/theme/flag-dt.png"
                                                 alt="">Deutsch</a></li>
-                                    <li><a href="#"><img
-                                                src="{{ asset('/') }}website/assets/imgs/theme/flag-ru.png"
+                                    <li><a href="#"><img src="{{ asset('/') }}website/assets/imgs/theme/flag-ru.png"
                                                 alt="">Pусский</a></li>
                                 </ul>
                             </li>
-                            <li><i class="fi-rs-user"></i><a href="page-login-register.html">Log In / Sign Up</a></li>
+                            @if (Session::get('customer_id'))
+                                <li>
+                                    <a class="language-dropdown-active" href="#"> <i class="fi-rs-user"></i>
+                                        User Name <i class="fi-rs-angle-small-down"></i></a>
+                                    <ul class="language-dropdown">
+                                        <li><a href="{{  route('customer.dashboard') }}"><i class="fi-rs-user"></i>Dashboard</a></li>
+                                        <li><a href="{{ route('customer-logout') }}"><i class="fi-rs-angle-right"></i>Logout</a></li>
+                                    </ul>
+                                </li>
+                            @else
+                                <li><i class="fi-rs-user"></i><a href="{{ route('login-register') }}">Log In / Sign Up</a>
+                                </li>
+                            @endif
                         </ul>
                     </div>
                 </div>
@@ -310,7 +313,8 @@
                                                             src="{{ asset('/') }}website/assets/imgs/shop/thumbnail-3.jpg"></a>
                                                 </div>
                                                 <div class="shopping-cart-title">
-                                                    <h4><a href="{{ route('product-detail', $cartItem->id) }}"> {{ Str::limit($cartItem->name, 15)  }}</a></h4>
+                                                    <h4><a href="{{ route('product-detail', $cartItem->id) }}">
+                                                            {{ Str::limit($cartItem->name, 15)  }}</a></h4>
                                                     <h4><span>{{ $cartItem->qty }} × Tk </span>{{ $cartItem->price }}</h4>
                                                 </div>
                                                 <div class="shopping-cart-delete">
@@ -449,8 +453,7 @@
                                                     <li class="mega-menu-col col-lg-6">
                                                         <ul>
                                                             <li><span class="submenu-title">Jackets & Coats</span></li>
-                                                            <li><a class="dropdown-item nav-link nav_item"
-                                                                    href="#">Down
+                                                            <li><a class="dropdown-item nav-link nav_item" href="#">Down
                                                                     Jackets</a></li>
                                                             <li><a class="dropdown-item nav-link nav_item"
                                                                     href="#">Jackets</a>
@@ -458,14 +461,12 @@
                                                             <li><a class="dropdown-item nav-link nav_item"
                                                                     href="#">Parkas</a>
                                                             </li>
-                                                            <li><a class="dropdown-item nav-link nav_item"
-                                                                    href="#">Faux
+                                                            <li><a class="dropdown-item nav-link nav_item" href="#">Faux
                                                                     Leather Coats</a></li>
                                                             <li><a class="dropdown-item nav-link nav_item"
                                                                     href="#">Trench</a>
                                                             </li>
-                                                            <li><a class="dropdown-item nav-link nav_item"
-                                                                    href="#">Wool
+                                                            <li><a class="dropdown-item nav-link nav_item" href="#">Wool
                                                                     & Blends</a></li>
                                                             <li><a class="dropdown-item nav-link nav_item"
                                                                     href="#">Vests
@@ -481,11 +482,9 @@
                                                             <li><a class="dropdown-item nav-link nav_item"
                                                                     href="#">Blazers</a>
                                                             </li>
-                                                            <li><a class="dropdown-item nav-link nav_item"
-                                                                    href="#">Suit
+                                                            <li><a class="dropdown-item nav-link nav_item" href="#">Suit
                                                                     Jackets</a></li>
-                                                            <li><a class="dropdown-item nav-link nav_item"
-                                                                    href="#">Suit
+                                                            <li><a class="dropdown-item nav-link nav_item" href="#">Suit
                                                                     Pants</a></li>
                                                             <li><a class="dropdown-item nav-link nav_item"
                                                                     href="#">Suits</a>
@@ -559,14 +558,12 @@
                                                             <li><a class="dropdown-item nav-link nav_item"
                                                                     href="#">Screen
                                                                     Protectors</a></li>
-                                                            <li><a class="dropdown-item nav-link nav_item"
-                                                                    href="#">Wire
+                                                            <li><a class="dropdown-item nav-link nav_item" href="#">Wire
                                                                     Chargers</a></li>
                                                             <li><a class="dropdown-item nav-link nav_item"
                                                                     href="#">Wireless
                                                                     Chargers</a></li>
-                                                            <li><a class="dropdown-item nav-link nav_item"
-                                                                    href="#">Car
+                                                            <li><a class="dropdown-item nav-link nav_item" href="#">Car
                                                                     Chargers</a></li>
                                                             <li><a class="dropdown-item nav-link nav_item"
                                                                     href="#">Power
@@ -574,8 +571,7 @@
                                                             <li><a class="dropdown-item nav-link nav_item"
                                                                     href="#">Armbands</a>
                                                             </li>
-                                                            <li><a class="dropdown-item nav-link nav_item"
-                                                                    href="#">Dust
+                                                            <li><a class="dropdown-item nav-link nav_item" href="#">Dust
                                                                     Plug</a></li>
                                                             <li><a class="dropdown-item nav-link nav_item"
                                                                     href="#">Signal
@@ -607,8 +603,7 @@
                                         </ul>
                                     </div>
                                 </li>
-                                <li><a href="{{ route('product-category') }}"><i
-                                            class="evara-font-desktop"></i>Computer
+                                <li><a href="{{ route('product-category') }}"><i class="evara-font-desktop"></i>Computer
                                         & Office</a></li>
                                 <li><a href="shop-grid-right.html"><i class="evara-font-cpu"></i>Consumer
                                         Electronics</a></li>
@@ -677,8 +672,7 @@
                                         <li><a href="shop-compare.html">Shop – Compare</a></li>
                                     </ul>
                                 </li>
-                                <li class="position-static"><a href="#">Mega menu <i
-                                            class="fi-rs-angle-down"></i></a>
+                                <li class="position-static"><a href="#">Mega menu <i class="fi-rs-angle-down"></i></a>
                                     <ul class="mega-menu">
                                         <li class="sub-mega-menu sub-mega-menu-width-22">
                                             <a class="menu-title" href="#">Women's Fashion</a>
@@ -779,15 +773,13 @@
                     <div class="header-action-2">
                         <div class="header-action-icon-2">
                             <a href="shop-wishlist.html">
-                                <img alt="Evara"
-                                    src="{{ asset('/') }}website/assets/imgs/theme/icons/icon-heart.svg">
+                                <img alt="Evara" src="{{ asset('/') }}website/assets/imgs/theme/icons/icon-heart.svg">
                                 <span class="pro-count white">4</span>
                             </a>
                         </div>
                         <div class="header-action-icon-2">
                             <a class="mini-cart-icon" href="shop-cart.html">
-                                <img alt="Evara"
-                                    src="{{ asset('/') }}website/assets/imgs/theme/icons/icon-cart.svg">
+                                <img alt="Evara" src="{{ asset('/') }}website/assets/imgs/theme/icons/icon-cart.svg">
                                 <span class="pro-count white">2</span>
                             </a>
                             <div class="cart-dropdown-wrap cart-dropdown-hm2">
@@ -848,8 +840,7 @@
     <div class="mobile-header-wrapper-inner">
         <div class="mobile-header-top">
             <div class="mobile-header-logo">
-                <a href="index-2.html"><img src="{{ asset('/') }}website/assets/imgs/theme/logo.svg"
-                        alt="logo"></a>
+                <a href="index-2.html"><img src="{{ asset('/') }}website/assets/imgs/theme/logo.svg" alt="logo"></a>
             </div>
             <div class="mobile-menu-close close-style-wrap close-style-position-inherit">
                 <button class="close-style search-close">
@@ -910,8 +901,7 @@
                                 <li><a href="shop-list-right.html">Shop List – Right Sidebar</a></li>
                                 <li><a href="shop-list-left.html">Shop List – Left Sidebar</a></li>
                                 <li><a href="shop-fullwidth.html">Shop - Wide</a></li>
-                                <li class="menu-item-has-children"><span class="menu-expand"></span><a
-                                        href="#">Single
+                                <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Single
                                         Product</a>
                                     <ul class="dropdown">
                                         <li><a href="shop-product-right.html">Product – Right Sidebar</a></li>
@@ -929,8 +919,7 @@
                         <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Mega
                                 menu</a>
                             <ul class="dropdown">
-                                <li class="menu-item-has-children"><span class="menu-expand"></span><a
-                                        href="#">Women's
+                                <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Women's
                                         Fashion</a>
                                     <ul class="dropdown">
                                         <li><a href="shop-product-right.html">Dresses</a></li>
@@ -939,8 +928,7 @@
                                         <li><a href="shop-product-right.html">Women's Sets</a></li>
                                     </ul>
                                 </li>
-                                <li class="menu-item-has-children"><span class="menu-expand"></span><a
-                                        href="#">Men's
+                                <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Men's
                                         Fashion</a>
                                     <ul class="dropdown">
                                         <li><a href="shop-product-right.html">Jackets</a></li>
@@ -967,8 +955,7 @@
                                 <li><a href="blog-category-list.html">Blog Category List</a></li>
                                 <li><a href="blog-category-big.html">Blog Category Big</a></li>
                                 <li><a href="blog-category-fullwidth.html">Blog Category Wide</a></li>
-                                <li class="menu-item-has-children"><span class="menu-expand"></span><a
-                                        href="#">Single
+                                <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Single
                                         Product Layout</a>
                                     <ul class="dropdown">
                                         <li><a href="blog-post-left.html">Left Sidebar</a></li>
@@ -978,8 +965,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="menu-item-has-children"><span class="menu-expand"></span><a
-                                href="#">Pages</a>
+                        <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Pages</a>
                             <ul class="dropdown">
                                 <li><a href="page-about.html">About Us</a></li>
                                 <li><a href="page-contact.html">Contact</a></li>
@@ -991,8 +977,7 @@
                                 <li><a href="page-404.html">404 Page</a></li>
                             </ul>
                         </li>
-                        <li class="menu-item-has-children"><span class="menu-expand"></span><a
-                                href="#">Language</a>
+                        <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Language</a>
                             <ul class="dropdown">
                                 <li><a href="#">English</a></li>
                                 <li><a href="#">French</a></li>
@@ -1017,16 +1002,11 @@
             </div>
             <div class="mobile-social-icon">
                 <h5 class="mb-15 text-grey-4">Follow Us</h5>
-                <a href="#"><img src="{{ asset('/') }}website/assets/imgs/theme/icons/icon-facebook.svg"
-                        alt=""></a>
-                <a href="#"><img src="{{ asset('/') }}website/assets/imgs/theme/icons/icon-twitter.svg"
-                        alt=""></a>
-                <a href="#"><img src="{{ asset('/') }}website/assets/imgs/theme/icons/icon-instagram.svg"
-                        alt=""></a>
-                <a href="#"><img src="{{ asset('/') }}website/assets/imgs/theme/icons/icon-pinterest.svg"
-                        alt=""></a>
-                <a href="#"><img src="{{ asset('/') }}website/assets/imgs/theme/icons/icon-youtube.svg"
-                        alt=""></a>
+                <a href="#"><img src="{{ asset('/') }}website/assets/imgs/theme/icons/icon-facebook.svg" alt=""></a>
+                <a href="#"><img src="{{ asset('/') }}website/assets/imgs/theme/icons/icon-twitter.svg" alt=""></a>
+                <a href="#"><img src="{{ asset('/') }}website/assets/imgs/theme/icons/icon-instagram.svg" alt=""></a>
+                <a href="#"><img src="{{ asset('/') }}website/assets/imgs/theme/icons/icon-pinterest.svg" alt=""></a>
+                <a href="#"><img src="{{ asset('/') }}website/assets/imgs/theme/icons/icon-youtube.svg" alt=""></a>
             </div>
         </div>
     </div>
