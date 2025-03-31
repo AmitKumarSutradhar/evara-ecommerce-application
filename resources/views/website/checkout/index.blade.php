@@ -22,16 +22,16 @@
                         </div>
                         <div>
                             <div class="form-group">
-                                <input type="text" required="" name="name" value="{{ $customer->name ? $customer->name : ''  }}" placeholder="Full name *">
+                                <input type="text" required="" name="name" value="{{ $customer->name ?? ''  }}" placeholder="Full name *">
                             </div>
                             <div class="form-group">
-                                <input required="" type="email" name="email" value="{{ $customer->email ? $customer->email : ''  }}" {{ $customer->email ? 'readonly' : ''  }}  placeholder="Email address *" required="">
+                                <input required="" type="email" name="email" value="{{ $customer->email ?? ''  }}"  {{ isset($customer->email) && $customer->email ? 'readonly' : '' }}  placeholder="Email address *" required="">
                             </div>
                             <div class="form-group">
-                                <input type="number" name="mobile" value="{{ $customer->mobile ? $customer->mobile : ''  }}" required="" placeholder="Mobile Number *">
+                                <input type="number" name="mobile" value="{{ $customer->mobile ?? ''  }}" required="" placeholder="Mobile Number *">
                             </div>
                             <div class="form-group">
-                                <textarea name="delivery_address" id="" placeholder="Delivery Address">{{ $customer->address ? $customer->address : ''  }}</textarea>
+                                <textarea name="delivery_address" id="" placeholder="Delivery Address">{{ $customer->address ?? ''  }}</textarea>
                                 {{-- <input type="text" name="" required=""> --}}
                             </div>
                             @if (!$customer)

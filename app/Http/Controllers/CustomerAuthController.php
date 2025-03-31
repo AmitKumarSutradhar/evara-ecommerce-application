@@ -35,12 +35,10 @@ class CustomerAuthController extends Controller
 
     public function newCustomer(Request $request)
     {
-        $this->customer = new Customer();
-        $this->customer->name = $request->name;
-        $this->customer->email = $request->email;
-        $this->customer->mobile = $request->mobile;
-        $this->customer->password = bcrypt($request->password);
-        $this->customer->save();
+        $this->customer = Customer::newCustomer($request);
+
+        Session::put('customer_id', $this->customer->id);
+        Session::put('customer_name', $this->customer->name);
 
         return redirect('/my-dashboard');
     }
