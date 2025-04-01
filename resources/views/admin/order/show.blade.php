@@ -45,7 +45,7 @@
                         </tr>
                         <tr>
                             <th>Customer Info</th>
-                            <td>{{ $order->customer->name }}</td>
+                            <td>{{ isset($order->customer->name) ? $order->customer->name : '' }}</td>
                         </tr>
                         <tr>
                             <th>Order Status</th>

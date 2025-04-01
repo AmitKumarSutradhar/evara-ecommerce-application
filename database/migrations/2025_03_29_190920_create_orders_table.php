@@ -29,6 +29,7 @@ return new class extends Migration
             $table->string('payment_status')->default('pending');
             $table->string('currency')->nullable();
             $table->string('transaction_id')->nullable();
+            $table->string('courier_id')->default(0);
             $table->timestamps();
         });
     }

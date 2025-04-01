@@ -13,7 +13,7 @@ class OrderController extends Controller
     public function index()
     {
         return view("admin.order.index", [
-            "orders"=> Order::all(),
+            "orders"=> Order::latest()->get(),
         ]);
     }
 
@@ -48,7 +48,9 @@ class OrderController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('admin.order.edit', [
+            'order' => Order::find( $id ),
+        ]);
     }
 
     /**
@@ -56,7 +58,8 @@ class OrderController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $order = Order::updateOrder( $request,$id );
+        return redirect(route('order.index'))->with('message', 'Order Info updated successfully.');
     }
 
     /**

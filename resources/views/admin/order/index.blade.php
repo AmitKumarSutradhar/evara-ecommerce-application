@@ -53,7 +53,7 @@
                                                     <a href="{{ route('order.show', $order->id) }}" class="btn btn-info btn-sm mx-2" title="View Order Details">
                                                         <i class="fa fa-eye"></i>
                                                     </a>
-                                                    <a href="{{ route('order.edit', $order->id) }}" class="btn btn-success btn-sm mx-2" title="Order Edit">
+                                                    <a href="{{ route('order.edit', $order->id) }}" class="btn btn-success btn-sm mx-2 {{ $order->order_status === 'completed' ? ' disabled' : '' }}" title="Order Edit">
                                                         <i class="fa fa-edit"></i>
                                                     </a>
                                                     <a href="{{ route('order.show', $order->id) }}" class="btn btn-primary btn-sm mx-2" title="View Order Invoice">
@@ -69,7 +69,7 @@
                                                     <form action="{{ route('order.destroy', $order->id) }}" method="POST">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button type="submit" onclick="return confirm('Are you sure to delete this')" class="btn btn-danger btn-sm">
+                                                        <button type="submit" onclick="return confirm('Are you sure to delete this')" class="btn btn-danger btn-sm {{ $order->order_status === 'completed' ? ' disabled' : '' }}">
                                                             <i class="fa fa-trash"></i>
                                                         </button>
                                                     </form>
