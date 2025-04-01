@@ -147,7 +147,7 @@
                     </a>
                     <ul class="slide-menu">
                         <li class="side-menu-label1"><a href="javascript:void(0)">Order</a></li>
-                        <li><a href="accordion.html" class="slide-item">Manage Order</a></li>
+                        <li><a href="{{  route('order.index') }}" class="slide-item">Manage Order</a></li>
                     </ul>
                 </li>
                 <li class="slide">

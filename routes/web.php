@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EvaraController;
 use App\Http\Controllers\DashboardController;
@@ -56,6 +57,8 @@ Route::middleware([ 'auth:sanctum',  config('jetstream.auth_session'),  'verifie
     Route::resource('color', ColorController::class);
     Route::resource('size', SizeController::class);
     Route::resource('product', ProductController::class);
+    Route::resource('order', OrderController::class);
+
     Route::get('get-sub-category-by-category', [ProductController::class, 'getSubcategoryByCategory'])->name('get-sub-category-by-category');
 
 });
