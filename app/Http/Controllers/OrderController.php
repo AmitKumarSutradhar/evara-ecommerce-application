@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\OrderDetail;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class OrderController extends Controller
 {
@@ -13,7 +15,7 @@ class OrderController extends Controller
     public function index()
     {
         return view("admin.order.index", [
-            "orders"=> Order::latest()->get(),
+            "orders" => Order::latest()->get(),
         ]);
     }
 
@@ -39,7 +41,7 @@ class OrderController extends Controller
     public function show(string $id)
     {
         return view('admin.order.show', [
-            'order' => Order::find( $id ),
+            'order' => Order::find($id),
         ]);
     }
 
@@ -49,7 +51,7 @@ class OrderController extends Controller
     public function edit(string $id)
     {
         return view('admin.order.edit', [
-            'order' => Order::find( $id ),
+            'order' => Order::find($id),
         ]);
     }
 
@@ -58,7 +60,7 @@ class OrderController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $order = Order::updateOrder( $request,$id );
+        $order = Order::updateOrder($request, $id);
         return redirect(route('order.index'))->with('message', 'Order Info updated successfully.');
     }
 
@@ -67,14 +69,27 @@ class OrderController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Order::deleteOrder($id);
+        OrderDetail::deleteOrderDetail($id);
+
+        return back()->with('message','Order deleted successfully.');
     }
 
-    public function invoice(string $id) 
+    public function invoice(string $id)
     {
-        $order = Order::find( $id );
+        $order = Order::find($id);
         return view('admin.order.invoice', [
             'order' => $order,
         ]);
+    }
+
+    public function invoiceDownload(string $id)
+    {
+        // $pdf = Pdf::loadHTML('<h1>Hello</h1>');
+        $order = Order::find($id);
+        $pdf = Pdf::loadView('admin.order.invoice-download', [
+            'order' => $order,
+        ]);
+        return $pdf->stream();
     }
 }

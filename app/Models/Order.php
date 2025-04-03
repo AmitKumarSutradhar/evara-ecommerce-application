@@ -68,4 +68,10 @@ class Order extends Model
 
         self::$order->save();
     }
+
+    public static function deleteOrder($id)
+    {
+        self::$order = Order::find($id);
+        self::$order->delete();
+    }
 }
