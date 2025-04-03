@@ -16,7 +16,7 @@ class Order extends Model
     {
         self::$order                    = new Order();
         self::$order->customer_id       = $customer->id;
-        self::$order->order_total       = Cart::total();
+        self::$order->order_total       = Cart::total() + 60;
         self::$order->tax_total         = Cart::tax();
         self::$order->shipping_total    = 60;
         self::$order->order_date        = date('Y-m-d');

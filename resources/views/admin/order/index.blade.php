@@ -56,7 +56,7 @@
                                                     <a href="{{ route('order.edit', $order->id) }}" class="btn btn-success btn-sm mx-2 {{ $order->order_status === 'completed' ? ' disabled' : '' }}" title="Order Edit">
                                                         <i class="fa fa-edit"></i>
                                                     </a>
-                                                    <a href="{{ route('order.show', $order->id) }}" class="btn btn-primary btn-sm mx-2" title="View Order Invoice">
+                                                    <a href="{{ route('order.invoice', $order->id) }}" class="btn btn-primary btn-sm mx-2" title="View Order Invoice">
                                                         <i class="fa fa-info"></i>
                                                     </a>
                                                     

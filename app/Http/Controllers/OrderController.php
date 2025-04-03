@@ -69,4 +69,12 @@ class OrderController extends Controller
     {
         //
     }
+
+    public function invoice(string $id) 
+    {
+        $order = Order::find( $id );
+        return view('admin.order.invoice', [
+            'order' => $order,
+        ]);
+    }
 }

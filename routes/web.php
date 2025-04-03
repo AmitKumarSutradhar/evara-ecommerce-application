@@ -57,6 +57,7 @@ Route::middleware([ 'auth:sanctum',  config('jetstream.auth_session'),  'verifie
     Route::resource('color', ColorController::class);
     Route::resource('size', SizeController::class);
     Route::resource('product', ProductController::class);
+    Route::get('order/invoice/{orderId}', [OrderController::class,'invoice'])->name('order.invoice');
     Route::resource('order', OrderController::class);
 
     Route::get('get-sub-category-by-category', [ProductController::class, 'getSubcategoryByCategory'])->name('get-sub-category-by-category');
