@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EvaraController;
 use App\Http\Controllers\DashboardController;
@@ -60,6 +61,7 @@ Route::middleware([ 'auth:sanctum',  config('jetstream.auth_session'),  'verifie
     Route::get('order/invoice/show/{orderId}', [OrderController::class,'invoice'])->name('order.invoice.show');
     Route::get('order/invoice/download/{orderId}', [OrderController::class,'invoiceDownload'])->name('order.invoice.download');
     Route::resource('order', OrderController::class);
+    Route::resource('user', UserController::class);
 
     Route::get('get-sub-category-by-category', [ProductController::class, 'getSubcategoryByCategory'])->name('get-sub-category-by-category');
 

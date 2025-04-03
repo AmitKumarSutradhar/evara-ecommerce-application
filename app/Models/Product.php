@@ -20,7 +20,7 @@ class Product extends Model
         self::$image = $request->file("image");
         self::$extension = self::$image->getClientOriginalExtension();
         self::$imageName = time() . '.' . self::$extension;
-        self::$directory = 'upload/product-images/';
+        self::$directory = 'uploads/images/product/';
         self::$image->move(self::$directory, self::$imageName);
         return self::$directory . self::$imageName;
     }
@@ -30,7 +30,7 @@ class Product extends Model
         if ($request->file('image')) {
             self::$imageUrl = self::getImageUrl($request);
         } else {
-            self::$imageUrl = 'upload/product.jpg';
+            self::$imageUrl = 'uploads/no-image.jpg';
         }
 
         self::$product = new Product();

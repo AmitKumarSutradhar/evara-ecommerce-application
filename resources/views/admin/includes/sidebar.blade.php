@@ -161,8 +161,8 @@
                             class="angle fa fa-angle-right"></i></a>
                     <ul class="slide-menu">
                         <li class="side-menu-label1"><a href="javascript:void(0)">User </a></li>
-                        <li><a href="background.html" class="slide-item">Add User</a></li>
-                        <li><a href="background.html" class="slide-item">Manage User</a></li>
+                        <li><a href="{{ route('user.create') }}" class="slide-item">Add User</a></li>
+                        <li><a href="{{ route('user.index') }}" class="slide-item">Manage User</a></li>
                     </ul>
                 </li>
             </ul>

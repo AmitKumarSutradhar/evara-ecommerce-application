@@ -18,6 +18,8 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
 
+    public static $user, $image, $imageName, $extension, $directory, $imageUrl;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -58,4 +60,67 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public static function newUser($request)
+    {
+
+        if ($request->file('image')) {
+            self::$image = $request->file("image");
+            self::$extension = self::$image->getClientOriginalExtension();
+            self::$imageName = time() . '.' . self::$extension;
+            self::$directory = 'uploads/images/user/';
+            self::$image->move(self::$directory, self::$imageName);
+            self::$imageUrl =  self::$directory . self::$imageName;
+        }else {
+            self::$imageUrl = 'uploads/no-image.jpg';
+        }
+
+        self::$user                     = new User();
+        self::$user->name               = $request->name;
+        self::$user->email              = $request->email;
+        self::$user->password           = bcrypt($request->password);
+        self::$user->mobile              = $request->mobile;
+        self::$user->role               = $request->role;
+        self::$user->profile_photo_path = self::$imageUrl;
+        self::$user->save();
+    }
+
+    public static function updateUserInfo($request, $id)
+    {
+        self::$user = User::findOrFail($id);
+
+        if ($request->file('image')) {
+            if(file_exists(self::$user->profile_photo_path))
+            {
+                unlink(self::$user->profile_photo_path);
+            }
+            self::$image = $request->file("image");
+            self::$extension = self::$image->getClientOriginalExtension();
+            self::$imageName = time() . '.' . self::$extension;
+            self::$directory = 'uploads/images/user/';
+            self::$image->move(self::$directory, self::$imageName);
+            self::$imageUrl =  self::$directory . self::$imageName;
+        }else {
+            self::$imageUrl = self::$user->profile_photo_path;
+        }
+
+        self::$user->name               = $request->name;
+        self::$user->email              = $request->email;
+        // self::$user->password           = bcrypt($request->password);
+        self::$user->mobile             = $request->mobile;
+        self::$user->role               = $request->role;
+        self::$user->profile_photo_path = self::$imageUrl;
+        self::$user->save();
+    }
+
+    public static function deleteUser($id)
+    {
+        self::$user = User::findOrFail($id);
+
+        if(file_exists(self::$user->profile_photo_path)) 
+        {
+               unlink(self::$user->profile_photo_path);
+        }
+       self::$user->delete();
+    }
 }
