@@ -15,7 +15,7 @@ class CheckoutController extends Controller
     public function index()
     {
         $this->customer = '';
-        if(Session::get("customer_id")){
+        if (Session::get("customer_id")) {
             $this->customer = Customer::findOrFail(Session::get("customer_id"));
         }
 
@@ -26,7 +26,9 @@ class CheckoutController extends Controller
     }
     public function newOrder(Request $request)
     {
+        // return $request;
         $this->customer = Customer::where('email', $request->email)->orWhere('mobile', $request->mobile)->first();
+
 
         if (!$this->customer) {
             $this->customer = Customer::newCustomer($request);
@@ -35,11 +37,12 @@ class CheckoutController extends Controller
         Session::put('customer_id', $this->customer->id);
         Session::put('customer_name', $this->customer->name);
 
-        $this->order = Order::newOrder($this->customer, $request);  
-
-        OrderDetail::newOrderDetail($this->order);
-
-        return redirect('/complete-order')->with('message', 'Congratulations!!! Your order post successfully.');
+        if ($request->payment_method == 'cod') {
+            $this->order = Order::newOrder($this->customer, $request);
+            OrderDetail::newOrderDetail($this->order);
+            return redirect('/complete-order')->with('message', 'Congratulations!!! Your order post successfully.');
+        } elseif ($request->payment_method == 'sslcommerz') {
+        }
     }
 
     public function completeOrder()

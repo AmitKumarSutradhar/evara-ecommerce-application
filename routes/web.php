@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\SslCommerzPaymentController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EvaraController;
@@ -61,8 +62,22 @@ Route::middleware([ 'auth:sanctum',  config('jetstream.auth_session'),  'verifie
     Route::get('order/invoice/show/{orderId}', [OrderController::class,'invoice'])->name('order.invoice.show');
     Route::get('order/invoice/download/{orderId}', [OrderController::class,'invoiceDownload'])->name('order.invoice.download');
     Route::resource('order', OrderController::class);
-    Route::resource('user', UserController::class);
+    Route::resource('user', UserController::class)->middleware(['superAdmin']);
 
     Route::get('get-sub-category-by-category', [ProductController::class, 'getSubcategoryByCategory'])->name('get-sub-category-by-category');
 
 });
+
+// SSLCOMMERZ Start
+Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);
+Route::get('/example2', [SslCommerzPaymentController::class, 'exampleHostedCheckout']);
+
+Route::post('/pay', [SslCommerzPaymentController::class, 'index']);
+Route::post('/pay-via-ajax', [SslCommerzPaymentController::class, 'payViaAjax']);
+
+Route::post('/success', [SslCommerzPaymentController::class, 'success']);
+Route::post('/fail', [SslCommerzPaymentController::class, 'fail']);
+Route::post('/cancel', [SslCommerzPaymentController::class, 'cancel']);
+
+Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
+//SSLCOMMERZ END
