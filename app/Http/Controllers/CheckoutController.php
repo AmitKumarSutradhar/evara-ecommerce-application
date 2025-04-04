@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Session;
 
 class CheckoutController extends Controller
 {
-    private $customer, $order, $orederDetail;
+    private $customer, $order, $orederDetail, $sslCommerzPayment;
     public function index()
     {
         $this->customer = '';
@@ -42,6 +42,8 @@ class CheckoutController extends Controller
             OrderDetail::newOrderDetail($this->order);
             return redirect('/complete-order')->with('message', 'Congratulations!!! Your order post successfully.');
         } elseif ($request->payment_method == 'sslcommerz') {
+            $this->sslCommerzPayment = new SslCommerzPaymentController();
+            $this->sslCommerzPayment->index($request, $this->customer);
         }
     }
 
