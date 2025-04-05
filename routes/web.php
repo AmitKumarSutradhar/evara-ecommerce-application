@@ -46,10 +46,13 @@ Route::post('/login-check', [CustomerAuthController::class, 'loginCheck'])->name
 Route::get('/new-customer', [CustomerAuthController::class, 'newCustomer'])->name('new-customer');
 Route::get('/customer-logout', [CustomerAuthController::class, 'logout'])->name('customer-logout');
 
-Route::get('/my-dashboard', [CustomerAuthController::class, 'dashboard'])->name('customer.dashboard');
+Route::get('/my-dashboard', [CustomerAuthController::class, 'dashboard'])->name('customer.dashboard')->middleware(['customer']);
+
+
 
 
 Route::middleware([ 'auth:sanctum',  config('jetstream.auth_session'),  'verified',])->group(function () {
+    
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::resource('category', CategoryController::class);
