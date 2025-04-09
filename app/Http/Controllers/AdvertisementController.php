@@ -50,8 +50,9 @@ class AdvertisementController extends Controller
      */
     public function edit(Advertisement $advertisement)
     {
-        return view('admin.advertisement.add', [
+        return view('admin.advertisement.edit', [
             'advertisement' => $advertisement,
+            'products' => Product::where('status', 1)->get(),
         ]);
     }
 
@@ -60,7 +61,8 @@ class AdvertisementController extends Controller
      */
     public function update(Request $request, Advertisement $advertisement)
     {
-        //
+        Advertisement::updateAadvertisement($request, $advertisement);
+        return back()->with('message', 'Aadvertisement info updated successfully.');
     }
 
     /**
@@ -68,6 +70,7 @@ class AdvertisementController extends Controller
      */
     public function destroy(Advertisement $advertisement)
     {
-        //
+        Advertisement::deleteAadvertisement($advertisement);
+        return back()->with('message', 'Aadvertisement deleted successfully.');
     }
 }

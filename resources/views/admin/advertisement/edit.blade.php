@@ -1,15 +1,15 @@
 @extends('admin.master')
-@section('title' , 'Add User')
+@section('title', 'Add Advertisement')
 @section('body')
     <!-- PAGE-HEADER -->
     <div class="page-header">
         <div>
-            <h1 class="page-title">User Module</h1>
+            <h1 class="page-title">Advertisement Module</h1>
         </div>
         <div class="ms-auto pageheader-btn">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="javascript:void(0);">User</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Edit User</li>
+                <li class="breadcrumb-item"><a href="javascript:void(0);">Advertisement</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Edit Advertisement</li>
             </ol>
         </div>
     </div>
@@ -19,69 +19,84 @@
         <div class="col">
             <div class="card">
                 <div class="card-header border-bottom">
-                    <h3 class="card-title">Edit User Form</h3>
+                    <h3 class="card-title">Advertisement Edit Form</h3>
                 </div>
                 <div class="card-body">
                     <p class="text-success">{{ session('message') }}</p>
-                    <form action="{{ route('user.update',$user->id) }}" method="POST" enctype="multipart/form-data" class="form-horizontal">
-                        @method('PUT')
+                    <form action="{{ route('advertisement.update',$advertisement->id) }}" method="POST" enctype="multipart/form-data"
+                        class="form-horizontal">
+                        @method("PUT")
                         @csrf
                         <div class="row mb-4">
-                            <label for="firstName" class="col-md-3 form-label">User Name</label>
+                            <label for="firstName" class="col-md-3 form-label">Product Name</label>
                             <div class="col-md-9">
-                                <input class="form-control" id="firstName" name="name" value="{{ $user->name }}" type="text">
-                                <span class="text-danger">{{ $errors->has('name') ?  $errors->first('name') : '' }}</span>
-                            </div>
-                        </div>
-                        <div class="row mb-4">
-                            <label for="email" class="col-md-3 form-label">User Email</label>
-                            <div class="col-md-9">
-                                <input class="form-control" id="email" name="email" value="{{ $user->email }}" type="email">
-                                <span class="text-danger">{{ $errors->has('email') ?  $errors->first('email') : '' }}</span>
-                            </div>
-                        </div>
-                        <div class="row mb-4">
-                            <label for="mobile" class="col-md-3 form-label">Mobile</label>
-                            <div class="col-md-9">
-                                <input class="form-control" id="mobile" name="mobile" value="{{ $user->mobile }}" type="number">
-                                <span class="text-danger">{{ $errors->has('mobile') ?  $errors->first('mobile') : '' }}</span>
-                            </div>
-                        </div>
-                        {{-- <div class="row mb-4">
-                            <label for="password" class="col-md-3 form-label">Password</label>
-                            <div class="col-md-9">
-                                <input class="form-control" id="password" name="password" value="{{ $user->name }}" type="password">
-                                <span class="text-danger">{{ $errors->has('password') ?  $errors->first('password') : '' }}</span>
-                            </div>
-                        </div> --}}
-                        
-                        <div class="row mb-4">
-                            <label for="password" class="col-md-3 form-label">Role</label>
-                            <div class="col-md-9">
-                                <select name="role" id="" class="form-control">
-                                    <option value="" selected disabled>-- Select Role --</option>
-                                    <option value="1" @selected($user->role == 1)>Admin</option>
-                                    <option value="2" @selected($user->role == 2)>Manager</option>
-                                    <option value="3" @selected($user->role == 3)>Executive</option>
+                                <select class="form-control" name="product_id" required>
+                                    @foreach ($products as $product)
+                                        <option value="{{ $product->id }}" @selected($product->id == $advertisement->product_id)>{{ $product->name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
-
+                        <div class="row mb-4">
+                            <label for="firstName" class="col-md-3 form-label">Advertisement Title</label>
+                            <div class="col-md-9">
+                                <input class="form-control" id="firstName" name="title" value="{{ $advertisement->title }}"
+                                    type="text">
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <label for="sub_title" class="col-md-3 form-label">Sub Title</label>
+                            <div class="col-md-9">
+                                <input class="form-control" id="sub_title" name="sub_title" value="{{ $advertisement->sub_title }}"
+                                    type="text">
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <label for="position" class="col-md-3 form-label">Position</label>
+                            <div class="col-md-9">
+                                <input class="form-control" id="position" name="position" value="{{ $advertisement->position }}"
+                                    type="number">
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <label for="offer_price" class="col-md-3 form-label">Offer Price</label>
+                            <div class="col-md-9">
+                                <input class="form-control" id="offer_price" name="offer_price"  value="{{ $advertisement->offer_price }}"
+                                    type="number">
+                                <span
+                                    class="text-danger">{{ $errors->has('offer_price') ? $errors->first('offer_price') : '' }}</span>
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <label for="discount" class="col-md-3 form-label">Discount</label>
+                            <div class="col-md-9">
+                                <input class="form-control" id="discount" name="discount" value="{{ $advertisement->discount }}"
+                                    type="number">
+                            </div>
+                        </div>
                         <div class="row mb-4">
                             <label for="email" class="col-md-3 form-label">Image</label>
                             <div class="col-md-9">
                                 <input id="imgInp" class="form-control" name="image" type="file">
-                                <img src="{{ asset($user->profile_photo_path) }}" id="categoryImage"/>
+                                <img src="{{ asset($advertisement->image) }}" id="categoryImage" class="mt-5"  height="250px"/>
                             </div>
                         </div>
+
                         <div class="row mb-4">
                             <label for="lastName" class="col-md-3 form-label">Publication Status</label>
                             <div class="col-md-9 pt-3">
-                                <label><input type="radio" value="1" name="status" checked><span class="text-13">Published</span></label>
-                                <label><input type="radio" value="0" name="status"><span class="text-13">Unpublished</span></label>
+                                <label>
+                                    <input type="radio" value="1" name="status" @checked( $advertisement->status == 1 )>
+                                    <span class="text-13">Published</span>
+                                </label>
+                                <label>
+                                    <input type="radio" value="0" name="status"  @checked( $advertisement->status == 0 )>
+                                    <span class="text-13">Unpublished</span>
+                                </label>
                             </div>
                         </div>
-                        <button class="btn btn-primary rounded-0 float-end" type="submit">Update Info</button>
+
+                        <button class="btn btn-primary rounded-0 float-end" type="submit">Update Advertisement</button>
                     </form>
                 </div>
             </div>
