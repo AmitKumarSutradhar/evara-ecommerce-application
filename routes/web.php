@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdvertisementController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\SslCommerzPaymentController;
 use App\Http\Controllers\UserController;
@@ -35,12 +36,12 @@ Route::get('/product-detail/{id}', [EvaraController::class, 'productDetail'])->n
 
 Route::resources(['cart'=> CartController::class]);
 
-// Checkout 
+// Checkout
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
 Route::post('/new-order', [CheckoutController::class, 'newOrder'])->name('new-order');
 Route::get('/complete-order', [CheckoutController::class, 'completeOrder'])->name('complete-order');
 
-// Customer 
+// Customer
 Route::get('/login-register', [CustomerAuthController::class, 'login'])->name('login-register');
 Route::post('/login-check', [CustomerAuthController::class, 'loginCheck'])->name('login-check');
 Route::get('/new-customer', [CustomerAuthController::class, 'newCustomer'])->name('new-customer');
@@ -52,7 +53,7 @@ Route::get('/my-dashboard', [CustomerAuthController::class, 'dashboard'])->name(
 
 
 Route::middleware([ 'auth:sanctum',  config('jetstream.auth_session'),  'verified',])->group(function () {
-    
+
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::resource('category', CategoryController::class);
@@ -66,6 +67,7 @@ Route::middleware([ 'auth:sanctum',  config('jetstream.auth_session'),  'verifie
     Route::get('order/invoice/download/{orderId}', [OrderController::class,'invoiceDownload'])->name('order.invoice.download');
     Route::resource('order', OrderController::class);
     Route::resource('user', UserController::class)->middleware(['superAdmin']);
+    Route::resource('advertisement', AdvertisementController::class);
 
     Route::get('get-sub-category-by-category', [ProductController::class, 'getSubcategoryByCategory'])->name('get-sub-category-by-category');
 

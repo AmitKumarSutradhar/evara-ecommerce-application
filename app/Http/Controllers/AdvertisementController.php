@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Advertisement;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class AdvertisementController extends Controller
@@ -12,7 +13,9 @@ class AdvertisementController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.advertisement.index', [
+            'advertisements' => Advertisement::latest()->get(),
+        ]);
     }
 
     /**
@@ -20,7 +23,9 @@ class AdvertisementController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.advertisement.add',[
+            'products' => Product::where('status', 1)->get(),
+        ]);
     }
 
     /**
@@ -28,7 +33,8 @@ class AdvertisementController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Advertisement::newAadvertisement($request);
+        return back()->with('message', 'Aadvertisement info created successfully.');
     }
 
     /**
@@ -44,7 +50,9 @@ class AdvertisementController extends Controller
      */
     public function edit(Advertisement $advertisement)
     {
-        //
+        return view('admin.advertisement.add', [
+            'advertisement' => $advertisement,
+        ]);
     }
 
     /**
