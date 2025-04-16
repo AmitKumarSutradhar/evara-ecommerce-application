@@ -12,7 +12,9 @@ class SettingController extends Controller
      */
     public function index()
     {
-        return view('admin.setting.index');
+        return view('admin.setting.index',[
+            'setting' => Setting::first(),
+        ]);
     }
 
     /**
@@ -28,7 +30,8 @@ class SettingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Setting::newSetting($request);
+        return back()->with('message', 'Settings data saved successfully.');
     }
 
     /**
@@ -52,7 +55,8 @@ class SettingController extends Controller
      */
     public function update(Request $request, Setting $setting)
     {
-        //
+        Setting::updateSetting($request, $setting);
+        return back()->with('message', 'Setting updated successfully.');
     }
 
     /**

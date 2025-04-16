@@ -17,6 +17,7 @@ use App\Http\Controllers\ColorController;
 use App\Http\Controllers\CustomerAuthController;
 use App\Http\Controllers\SizeController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SettingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,6 +69,7 @@ Route::middleware([ 'auth:sanctum',  config('jetstream.auth_session'),  'verifie
     Route::resource('order', OrderController::class);
     Route::resource('user', UserController::class)->middleware(['superAdmin']);
     Route::resource('advertisement', AdvertisementController::class);
+    Route::resource('setting', SettingController::class);
 
     Route::get('get-sub-category-by-category', [ProductController::class, 'getSubcategoryByCategory'])->name('get-sub-category-by-category');
 

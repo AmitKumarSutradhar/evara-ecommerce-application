@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Category;
+use App\Models\Setting;
 use Illuminate\Support\ServiceProvider;
 use View;
 
@@ -23,6 +24,7 @@ class AppServiceProvider extends ServiceProvider
     {
        View::composer(['website.master'], function ($view) {
             $view->with('categories', Category::all());
+            $view->with('settings', Setting::first());
         });
     }
 }
